@@ -32,7 +32,7 @@ public class HelloScreen extends JFrame {
      */
     public static void main(String[] args) {
         try {
-            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+            //UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
         } catch (Throwable e) {
             e.printStackTrace();
         }
