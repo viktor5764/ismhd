@@ -26,7 +26,8 @@ import javax.swing.table.TableCellRenderer;
 import java.util.ResourceBundle;
 
 public class HlavnaPonukaScreen extends JFrame {
-    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kucsera_kovalcik.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
+    //private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kucsera_kovalcik.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
+    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kucsera_kovalcik.icp.ismhd.gui.stop.messages_EN"); //$NON-NLS-1$
 
     private static final long serialVersionUID = -2332388519311531223L;
     private JPanel contentPane;
@@ -111,7 +112,7 @@ public class HlavnaPonukaScreen extends JFrame {
         lbNewLabel.setBounds(463, 0, 171, 65);
         contentPane.add(lbNewLabel);
         
-        bCestovnePoriadky = new JButton("<html><center>Cestovn\u00E9<br>poriadky</center></html>");
+        bCestovnePoriadky = new JButton(BUNDLE.getString("HlavnaPonukaScreen.bCestovnePoriadky.text")); //$NON-NLS-1$
         bCestovnePoriadky.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 HlavnaPonukaScreen.this.dispose();
@@ -126,7 +127,7 @@ public class HlavnaPonukaScreen extends JFrame {
         bCestovnePoriadky.setBounds(9, 105, 123, 65);
         contentPane.add(bCestovnePoriadky);
         
-        bVyhladatSpojenie = new JButton("<html><center>Vyh\u013Eada\u0165<br>spojenie</center></html>");
+        bVyhladatSpojenie = new JButton(BUNDLE.getString("HlavnaPonukaScreen.bVyhladatSpojenie.text")); //$NON-NLS-1$
         bVyhladatSpojenie.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 VyhladanieTrasyScreen frame = new VyhladanieTrasyScreen();
