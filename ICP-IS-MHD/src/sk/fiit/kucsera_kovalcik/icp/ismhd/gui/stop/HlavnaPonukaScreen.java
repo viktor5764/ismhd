@@ -23,8 +23,10 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
+import java.util.ResourceBundle;
 
 public class HlavnaPonukaScreen extends JFrame {
+    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kucsera_kovalcik.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
 
     private static final long serialVersionUID = -2332388519311531223L;
     private JPanel contentPane;
@@ -139,7 +141,7 @@ public class HlavnaPonukaScreen extends JFrame {
         bVyhladatSpojenie.setBounds(9, 181, 123, 65);
         contentPane.add(bVyhladatSpojenie);
         
-        bMapa = new JButton("<html><center>Mapa<br></center></html>");
+        bMapa = new JButton(BUNDLE.getString("HlavnaPonukaScreen.bMapa.text")); //$NON-NLS-1$
         bMapa.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 HlavnaPonukaScreen.this.dispose();
@@ -154,7 +156,7 @@ public class HlavnaPonukaScreen extends JFrame {
         bMapa.setBounds(9, 257, 123, 65);
         contentPane.add(bMapa);
         
-        bPomoc = new JButton("<html><center>Pomoc<br></center></html>");
+        bPomoc = new JButton(BUNDLE.getString("HlavnaPonukaScreen.bPomoc.text")); //$NON-NLS-1$
         bPomoc.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 HlavnaPonukaScreen.this.dispose();
