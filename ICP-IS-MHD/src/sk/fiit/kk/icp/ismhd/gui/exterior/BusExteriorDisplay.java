@@ -1,4 +1,4 @@
-package sk.fiit.kucsera_kovalcik.icp.ismhd.gui.exterior;
+package sk.fiit.kk.icp.ismhd.gui.exterior;
 
 import java.awt.Color;
 import java.awt.Component;

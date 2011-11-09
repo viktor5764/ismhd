@@ -1,4 +1,4 @@
-package sk.fiit.kucsera_kovalcik.icp.ismhd.gui.stop;
+package sk.fiit.kk.icp.ismhd.gui.stop;
 
 import java.awt.Color;
 import java.awt.Component;

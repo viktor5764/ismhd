@@ -1,4 +1,4 @@
-package sk.fiit.kucsera_kovalcik.icp.ismhd.gui.interior;
+package sk.fiit.kk.icp.ismhd.gui.interior;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -20,8 +20,8 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
-import sk.fiit.kucsera_kovalcik.icp.ismhd.gui.stop.HlavnaPonukaScreen;
-import sk.fiit.kucsera_kovalcik.icp.ismhd.gui.stop.VyhladanieTrasyScreen;
+import sk.fiit.kk.icp.ismhd.gui.stop.HlavnaPonukaScreen;
+import sk.fiit.kk.icp.ismhd.gui.stop.VyhladanieTrasyScreen;
 
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;

@@ -1,4 +1,4 @@
-package sk.fiit.kucsera_kovalcik.icp.ismhd.gui.stop;
+package sk.fiit.kk.icp.ismhd.gui.stop;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -25,27 +25,22 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
-import java.awt.GridLayout;
-import javax.swing.border.EtchedBorder;
 
-public class PodrobnostiTrasyScreen extends JFrame {
+public class NajdeneTrasyScreen extends JFrame {
 
     private JPanel contentPane;
     private JLabel lbZochova;
     private JLabel label;
     private JLabel lbNewLabel;
+    private JButton bPodrobnosti;
     private JButton bSpat;
     private JTable table;
-    private JLabel lbZochovast;
-    private JPanel panel;
-    private JLabel lbDtum;
-    private JLabel label_1;
+    private JLabel lbLinka;
+    private JLabel lbSmer;
     private JLabel lbas;
-    private JLabel label_2;
-    private JLabel lbTrvanie;
-    private JLabel lbMint;
-    private JLabel lbTrasa;
-    private JLabel lbPodrobnosti;
+    private JLabel lbPrchod;
+    private JLabel lbPoetPrestupov;
+    private JLabel lbZochovast;
 
     /**
      * Launch the application.
@@ -59,7 +54,7 @@ public class PodrobnostiTrasyScreen extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    PodrobnostiTrasyScreen frame = new PodrobnostiTrasyScreen();
+                    NajdeneTrasyScreen frame = new NajdeneTrasyScreen();
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -71,7 +66,7 @@ public class PodrobnostiTrasyScreen extends JFrame {
     /**
      * Create the frame.
      */
-    public PodrobnostiTrasyScreen() {
+    public NajdeneTrasyScreen() {
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 640, 480);
@@ -81,12 +76,12 @@ public class PodrobnostiTrasyScreen extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
         
-        lbZochova = new JLabel("Detaily spojenia");
+        lbZochova = new JLabel("N\u00E1jden\u00E9 trasy");
         lbZochova.setOpaque(true);
         lbZochova.setHorizontalAlignment(SwingConstants.CENTER);
         lbZochova.setHorizontalTextPosition(SwingConstants.CENTER);
         lbZochova.setForeground(Color.BLUE);
-        lbZochova.setFont(new Font("Arial", Font.PLAIN, 36));
+        lbZochova.setFont(new Font("Arial", Font.PLAIN, 38));
         lbZochova.setBorder(new LineBorder(Color.BLUE, 2));
         lbZochova.setBackground(Color.WHITE);
         lbZochova.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -110,11 +105,27 @@ public class PodrobnostiTrasyScreen extends JFrame {
         lbNewLabel.setBackground(new Color(255, 204, 153));
         contentPane.add(lbNewLabel);
         
+        bPodrobnosti = new JButton("Podrobnosti");
+        bPodrobnosti.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                NajdeneTrasyScreen.this.dispose();
+                NajdeneTrasyScreen.this.setVisible(false);
+                PodrobnostiTrasyScreen scr = new PodrobnostiTrasyScreen();
+                scr.setVisible(true);
+            }
+        });
+        bPodrobnosti.setEnabled(false);
+        bPodrobnosti.setHorizontalTextPosition(SwingConstants.CENTER);
+        bPodrobnosti.setFont(new Font("Arial", Font.BOLD, 17));
+        bPodrobnosti.setAlignmentX(0.5f);
+        bPodrobnosti.setBounds(483, 399, 133, 49);
+        contentPane.add(bPodrobnosti);
+        
         bSpat = new JButton("<html><center>Sp\u00E4\u0165<br></center></html>");
         bSpat.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                PodrobnostiTrasyScreen.this.dispose();
-                PodrobnostiTrasyScreen.this.setVisible(false);
+                NajdeneTrasyScreen.this.dispose();
+                NajdeneTrasyScreen.this.setVisible(false);
                 VyhladanieTrasyScreen scr = new VyhladanieTrasyScreen();
                 scr.setVisible(true);
             }
@@ -129,16 +140,14 @@ public class PodrobnostiTrasyScreen extends JFrame {
             private TableCellRenderer renderer = new CenteredTableCellRenderer();
             
 
-           /* @Override
             public TableCellRenderer getCellRenderer(int row, int column) {
                 return renderer;
             }
             
-            @Override
             public void paint(Graphics g) {
                 super.paint(g);
-                //paintEmptyRows(g);
-            }*/
+                paintEmptyRows(g);
+            }
 
             /**
              * Paints the backgrounds of the implied empty rows when the
@@ -163,7 +172,6 @@ public class PodrobnostiTrasyScreen extends JFrame {
              * JTable normally restricts its size to just what's needed by its
              * model.
              */
-            @Override
             public boolean getScrollableTracksViewportHeight() {
                 if (getParent() instanceof JViewport) {
                     JViewport parent = (JViewport) getParent();
@@ -182,7 +190,6 @@ public class PodrobnostiTrasyScreen extends JFrame {
             /**
              * Shades alternate rows in different colors.
              */
-            /*@Override
             public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
                 Component c = super.prepareRenderer(renderer, row, column);
                 if (isCellSelected(row, column) == false) {
@@ -195,36 +202,80 @@ public class PodrobnostiTrasyScreen extends JFrame {
                     //c.setForeground(UIManager.getColor("Table.selectionForeground"));
                 }
                 return c;
-            }*/
+            }
         };
+        table.setShowVerticalLines(false);
         table.setRowMargin(2);
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         table.setFocusable(false);
         table.setRequestFocusEnabled(false);
-        table.setRowHeight(22);
+        table.setRowHeight(40);
         table.setBackground(new Color(255, 204, 153));
         table.setBorder(new LineBorder(Color.BLUE, 2, true));
-        table.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        table.setFont(new Font("Tahoma", Font.PLAIN, 17));
+        table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e){
+                bPodrobnosti.setEnabled(true);
+            }
+        });
         table.setModel(new DefaultTableModel(
             new Object[][] {
-                {"<html><b>linka 31</b></html>", "smer Ra\u010Dianske m\u00FDto"},
-                {null, "<html><b>14:00 - Zochova</b></html>"},
-                {null, "   (3 zast\u00E1vky, 13 min)"},
-                {null, "<html><b>14:13 - Vazovova</b></html>"},
-                {null, null},
-                {"<html><b>linka 50</b></html>", "smer Nov\u00E9 Mesto"},
-                {null, "<html><b>14:14 - Vazovova</b></html>"},
-                {null, "   (6 zast\u00E1vok, 15 min)"},
-                {null, "<html><b>14:29 - \u017DST Nov\u00E9 Mesto</b></html>"},
+                {"13:46", "14:02", "16 min\u00FAt", "0", "31"},
+                {"13:46", "14:03", "17 min\u00FAt", "1", "31, 39"},
+                {"13:48", "14:09", "21 min\u00FAt", "2", "32, 50, 83"},
+                {"13:52", "14:08", "16 min\u00FAt", "0", "31"},
+                {"13:52", "14:09", "17 min\u00FAt", "1", "31, 39"},
+                {"14:00", "14:21", "21 min\u00FAt", "2", "32, 50, 83"},
             },
             new String[] {
-                "New column", "New column"
+                "Odchod", "Pr\u00EDchod", "D\u013A\u017Eka cesty", "Prestupy", "Pou\u017Eit\u00E9 linky"
             }
-        ));
-        table.getColumnModel().getColumn(0).setPreferredWidth(73);
-        table.getColumnModel().getColumn(1).setPreferredWidth(166);
-        table.setBounds(295, 144, 332, 243);
+        ) {
+            Class[] columnTypes = new Class[] {
+                String.class, String.class, String.class, String.class, String.class
+            };
+            public Class getColumnClass(int columnIndex) {
+                return columnTypes[columnIndex];
+            }
+        });
+        table.getColumnModel().getColumn(0).setPreferredWidth(45);
+        table.getColumnModel().getColumn(1).setPreferredWidth(57);
+        table.getColumnModel().getColumn(2).setPreferredWidth(77);
+        table.getColumnModel().getColumn(3).setPreferredWidth(20);
+        table.getColumnModel().getColumn(4).setPreferredWidth(133);
+        table.setBounds(6, 147, 621, 240);
         contentPane.add(table);
+        
+        lbLinka = new JLabel("Odchod");
+        lbLinka.setHorizontalAlignment(SwingConstants.CENTER);
+        lbLinka.setFont(new Font("Arial", Font.PLAIN, 22));
+        lbLinka.setBounds(10, 121, 89, 24);
+        contentPane.add(lbLinka);
+        
+        lbSmer = new JLabel("D\u013A\u017Eka cesty");
+        lbSmer.setHorizontalAlignment(SwingConstants.CENTER);
+        lbSmer.setFont(new Font("Arial", Font.PLAIN, 22));
+        lbSmer.setBounds(225, 121, 122, 24);
+        contentPane.add(lbSmer);
+        
+        lbas = new JLabel("Pou\u017Eit\u00E9 linky");
+        lbas.setHorizontalAlignment(SwingConstants.CENTER);
+        lbas.setFont(new Font("Arial", Font.PLAIN, 22));
+        lbas.setBounds(455, 121, 144, 24);
+        contentPane.add(lbas);
+        
+        lbPrchod = new JLabel("Pr\u00EDchod");
+        lbPrchod.setHorizontalAlignment(SwingConstants.CENTER);
+        lbPrchod.setFont(new Font("Arial", Font.PLAIN, 22));
+        lbPrchod.setBounds(118, 121, 89, 24);
+        contentPane.add(lbPrchod);
+        
+        lbPoetPrestupov = new JLabel("Prestupy");
+        lbPoetPrestupov.setHorizontalAlignment(SwingConstants.CENTER);
+        lbPoetPrestupov.setFont(new Font("Arial", Font.PLAIN, 22));
+        lbPoetPrestupov.setBounds(351, 121, 93, 24);
+        contentPane.add(lbPoetPrestupov);
         
         lbZochovast = new JLabel("Zochova \u2192 \u017DST Nov\u00E9 Mesto");
         lbZochovast.setForeground(Color.BLUE);
@@ -233,47 +284,6 @@ public class PodrobnostiTrasyScreen extends JFrame {
         lbZochovast.setHorizontalAlignment(SwingConstants.CENTER);
         lbZochovast.setBounds(9, 78, 597, 31);
         contentPane.add(lbZochovast);
-        
-        panel = new JPanel();
-        panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-        panel.setBackground(new Color(255, 204, 153));
-        panel.setBounds(9, 142, 285, 116);
-        contentPane.add(panel);
-        panel.setLayout(new GridLayout(0, 2, 0, 0));
-        
-        lbDtum = new JLabel("D\u00E1tum:");
-        lbDtum.setFont(new Font("SansSerif", Font.PLAIN, 18));
-        panel.add(lbDtum);
-        
-        label_1 = new JLabel("22.4.2015");
-        label_1.setFont(new Font("SansSerif", Font.BOLD, 18));
-        panel.add(label_1);
-        
-        lbas = new JLabel("\u010Cas:");
-        lbas.setFont(new Font("SansSerif", Font.PLAIN, 18));
-        panel.add(lbas);
-        
-        label_2 = new JLabel("14:00 - 14:29");
-        label_2.setFont(new Font("SansSerif", Font.BOLD, 18));
-        panel.add(label_2);
-        
-        lbTrvanie = new JLabel("Trvanie:");
-        lbTrvanie.setFont(new Font("SansSerif", Font.PLAIN, 18));
-        panel.add(lbTrvanie);
-        
-        lbMint = new JLabel("29 min\u00FAt");
-        lbMint.setFont(new Font("SansSerif", Font.BOLD, 18));
-        panel.add(lbMint);
-        
-        lbTrasa = new JLabel("Trasa:");
-        lbTrasa.setFont(new Font("Arial", Font.PLAIN, 22));
-        lbTrasa.setBounds(295, 121, 141, 16);
-        contentPane.add(lbTrasa);
-        
-        lbPodrobnosti = new JLabel("Podrobnosti:");
-        lbPodrobnosti.setFont(new Font("Arial", Font.PLAIN, 22));
-        lbPodrobnosti.setBounds(9, 121, 141, 16);
-        contentPane.add(lbPodrobnosti);
     }
     
     private class CenteredTableCellRenderer extends DefaultTableCellRenderer {
@@ -283,5 +293,5 @@ public class PodrobnostiTrasyScreen extends JFrame {
                 renderedLabel.setHorizontalAlignment(SwingConstants.CENTER);
                 return renderedLabel;
         }
-    }
+    };
 }
