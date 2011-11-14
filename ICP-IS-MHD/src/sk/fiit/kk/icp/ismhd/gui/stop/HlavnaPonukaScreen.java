@@ -26,8 +26,8 @@ import javax.swing.table.TableCellRenderer;
 import java.util.ResourceBundle;
 
 public class HlavnaPonukaScreen extends JFrame {
-    //private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kucsera_kovalcik.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
-    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kucsera_kovalcik.icp.ismhd.gui.stop.messages_EN"); //$NON-NLS-1$
+    //private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
+    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_EN"); //$NON-NLS-1$
 
     private static final long serialVersionUID = -2332388519311531223L;
     private JPanel contentPane;
@@ -173,27 +173,27 @@ public class HlavnaPonukaScreen extends JFrame {
         contentPane.add(bPomoc);
         
         bSk = new JButton("");
-        bSk.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kucsera_kovalcik/icp/ismhd/flag_sk.GIF")));
+        bSk.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_sk.GIF")));
         bSk.setBounds(135, 399, 97, 42);
         contentPane.add(bSk);
         
         bEn = new JButton("");
-        bEn.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kucsera_kovalcik/icp/ismhd/flag_en.GIF")));
+        bEn.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_en.GIF")));
         bEn.setBounds(231, 399, 97, 42);
         contentPane.add(bEn);
         
         bDe = new JButton("");
-        bDe.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kucsera_kovalcik/icp/ismhd/flag_de.GIF")));
+        bDe.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_de.GIF")));
         bDe.setBounds(328, 399, 97, 42);
         contentPane.add(bDe);
         
         bEs = new JButton("");
-        bEs.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kucsera_kovalcik/icp/ismhd/flag_es.GIF")));
+        bEs.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_es.GIF")));
         bEs.setBounds(425, 399, 97, 42);
         contentPane.add(bEs);
         
         bFr = new JButton("");
-        bFr.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kucsera_kovalcik/icp/ismhd/flag_fr.GIF")));
+        bFr.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_fr.GIF")));
         bFr.setBounds(522, 399, 97, 42);
         contentPane.add(bFr);
         
