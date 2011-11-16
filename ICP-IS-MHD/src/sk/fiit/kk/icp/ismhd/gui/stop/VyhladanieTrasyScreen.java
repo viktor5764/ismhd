@@ -31,7 +31,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 
 public class VyhladanieTrasyScreen extends JFrame {
-
+	// vyhladanie trasy
     private JPanel contentPane;
     private JLabel lbTitle;
     private JLabel lbCas;
