@@ -29,8 +29,10 @@ import javax.swing.SpinnerListModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
+import java.util.ResourceBundle;
 
 public class VyhladanieTrasyScreen extends JFrame {
+    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
 
     private JPanel contentPane;
     private JLabel lbTitle;
@@ -46,7 +48,7 @@ public class VyhladanieTrasyScreen extends JFrame {
     private JLabel lbCas;
     private JLabel lbHodina;
     private JLabel lbMinuta;
-    private JLabel label;
+    private JLabel lbDvojbodka;
     private JPanel panel;
     private JLabel lbDatum;
     private JLabel lbDen;
@@ -89,7 +91,7 @@ public class VyhladanieTrasyScreen extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
         
-        lbTitle = new JLabel("Vyh\u013Eadanie trasy");
+        lbTitle = new JLabel(BUNDLE.getString("VyhladanieTrasyScreen.lbTitle.text")); //$NON-NLS-1$
         lbTitle.setOpaque(true);
         lbTitle.setHorizontalAlignment(SwingConstants.CENTER);
         lbTitle.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -109,7 +111,7 @@ public class VyhladanieTrasyScreen extends JFrame {
         lbAktualnyCas.setBackground(new Color(255, 204, 153));
         contentPane.add(lbAktualnyCas);
         
-        lbDatumDenTeplota = new JLabel("<html><center>22. apr\u00EDl 2015<br>\r\nPondelok<br>\r\n22\u00B0C</center></html>");
+        lbDatumDenTeplota = new JLabel(BUNDLE.getString("VyhladanieTrasyScreen.lbDatumDenTeplota.text")); //$NON-NLS-1$
         lbDatumDenTeplota.setOpaque(true);
         lbDatumDenTeplota.setHorizontalAlignment(SwingConstants.CENTER);
         lbDatumDenTeplota.setBorder(new LineBorder(new Color(0, 0, 0), 2));
@@ -132,7 +134,7 @@ public class VyhladanieTrasyScreen extends JFrame {
         comboBoxVychodiskova.setModel(new DefaultComboBoxModel(new String[] {"Ag\u00E1tov\u00E1", "Alexyho", "Astronomick\u00E1", "Aupark", "Autobusov\u00E1 stanica", "Avion", "Bajkalsk\u00E1", "Botanick\u00E1 z\u00E1hrada", "Chatam S\u00F3fer", "Cintor\u00EDn Sl\u00E1v. \u00FAdolie", "\u010Cunovo", "Gagarinova", "Kop\u010Dany", "Lafranconi", "Ra\u010Dianske m\u00FDto", "SAV", "S\u00FAhvezdn\u00E1", "\u0160pit\u00E1lska", "Telev\u00EDzia", "Trnavsk\u00E9 m\u00FDto", "Vazovova", "Zochova", "\u017DST Nov\u00E9 Mesto"}));
         comboBoxVychodiskova.setSelectedIndex(21);
         
-        lbVychodiskovaZastavka = new JLabel("V\u00FDchodiskov\u00E1 zast\u00E1vka:");
+        lbVychodiskovaZastavka = new JLabel(BUNDLE.getString("VyhladanieTrasyScreen.lbVychodiskovaZastavka.text")); //$NON-NLS-1$
         lbVychodiskovaZastavka.setBounds(6, 6, 232, 26);
         pVychodiskova.add(lbVychodiskovaZastavka);
         lbVychodiskovaZastavka.setFont(new Font("Arial", Font.PLAIN, 22));
@@ -155,7 +157,7 @@ public class VyhladanieTrasyScreen extends JFrame {
         comboBoxCielova.setBounds(0, 43, 237, 47);
         pCielova.add(comboBoxCielova);
         
-        lbCielovaZastavka = new JLabel("Cie\u013Eov\u00E1 zast\u00E1vka:");
+        lbCielovaZastavka = new JLabel(BUNDLE.getString("VyhladanieTrasyScreen.lbCielovaZastavka.text")); //$NON-NLS-1$
         lbCielovaZastavka.setFont(new Font("Arial", Font.PLAIN, 22));
         lbCielovaZastavka.setBounds(6, 6, 232, 26);
         pCielova.add(lbCielovaZastavka);
@@ -178,17 +180,17 @@ public class VyhladanieTrasyScreen extends JFrame {
         spinnerHodina.setBounds(70, 52, 75, 72);
         pCas.add(spinnerHodina);
         
-        lbCas = new JLabel("\u010Cas:");
+        lbCas = new JLabel(BUNDLE.getString("VyhladanieTrasyScreen.lbCas.text")); //$NON-NLS-1$
         lbCas.setFont(new Font("Arial", Font.PLAIN, 22));
         lbCas.setBounds(6, 6, 232, 26);
         pCas.add(lbCas);
         
-        lbHodina = new JLabel("hodina");
+        lbHodina = new JLabel(BUNDLE.getString("VyhladanieTrasyScreen.lbHodina.text")); //$NON-NLS-1$
         lbHodina.setHorizontalAlignment(SwingConstants.CENTER);
         lbHodina.setBounds(70, 39, 55, 16);
         pCas.add(lbHodina);
         
-        lbMinuta = new JLabel("min\u00FAta");
+        lbMinuta = new JLabel(BUNDLE.getString("VyhladanieTrasyScreen.lbMinuta.text")); //$NON-NLS-1$
         lbMinuta.setHorizontalAlignment(SwingConstants.CENTER);
         lbMinuta.setBounds(152, 39, 55, 16);
         pCas.add(lbMinuta);
@@ -199,10 +201,10 @@ public class VyhladanieTrasyScreen extends JFrame {
         spinnerMinuta.setBounds(152, 52, 75, 72);
         pCas.add(spinnerMinuta);
         
-        label = new JLabel(":");
-        label.setFont(new Font("SansSerif", Font.PLAIN, 31));
-        label.setBounds(143, 73, 9, 27);
-        pCas.add(label);
+        lbDvojbodka = new JLabel(":");
+        lbDvojbodka.setFont(new Font("SansSerif", Font.PLAIN, 31));
+        lbDvojbodka.setBounds(143, 73, 9, 27);
+        pCas.add(lbDvojbodka);
         
         panel = new JPanel();
         panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -217,17 +219,17 @@ public class VyhladanieTrasyScreen extends JFrame {
         spinnerDen.setBounds(20, 52, 75, 72);
         panel.add(spinnerDen);
         
-        lbDatum = new JLabel("D\u00E1tum:");
+        lbDatum = new JLabel(BUNDLE.getString("VyhladanieTrasyScreen.lbDatum.text")); //$NON-NLS-1$
         lbDatum.setFont(new Font("Arial", Font.PLAIN, 22));
         lbDatum.setBounds(6, 6, 232, 26);
         panel.add(lbDatum);
         
-        lbDen = new JLabel("de\u0148");
+        lbDen = new JLabel(BUNDLE.getString("VyhladanieTrasyScreen.lbDen.text")); //$NON-NLS-1$
         lbDen.setHorizontalAlignment(SwingConstants.CENTER);
         lbDen.setBounds(23, 39, 55, 16);
         panel.add(lbDen);
         
-        lbMesiac = new JLabel("mesiac");
+        lbMesiac = new JLabel(BUNDLE.getString("VyhladanieTrasyScreen.lbMesiac.text")); //$NON-NLS-1$
         lbMesiac.setHorizontalAlignment(SwingConstants.CENTER);
         lbMesiac.setBounds(158, 39, 55, 16);
         panel.add(lbMesiac);
@@ -238,7 +240,7 @@ public class VyhladanieTrasyScreen extends JFrame {
         spinnerMesiac.setBounds(101, 52, 184, 72);
         panel.add(spinnerMesiac);
         
-        bVyhladat = new JButton("Vyh\u013Eada\u0165");
+        bVyhladat = new JButton(BUNDLE.getString("VyhladanieTrasyScreen.bVyhladat.text")); //$NON-NLS-1$
         bVyhladat.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 VyhladanieTrasyScreen.this.dispose();
@@ -251,7 +253,7 @@ public class VyhladanieTrasyScreen extends JFrame {
         bVyhladat.setBounds(510, 399, 114, 49);
         contentPane.add(bVyhladat);
         
-        bSpat = new JButton("Sp\u00E4\u0165");
+        bSpat = new JButton(BUNDLE.getString("VyhladanieTrasyScreen.bSpat.text")); //$NON-NLS-1$
         bSpat.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 VyhladanieTrasyScreen.this.dispose();
@@ -271,12 +273,12 @@ public class VyhladanieTrasyScreen extends JFrame {
         pOdchodPrichod.setLayout(null);
         pOdchodPrichod.setBackground(new Color(255, 235, 205));
         
-        JRadioButton rdbtnOdchod = new JRadioButton("Odchod");
+        JRadioButton rdbtnOdchod = new JRadioButton(BUNDLE.getString("VyhladanieTrasyScreen.rdbtnOdchod.text")); //$NON-NLS-1$
         rdbtnOdchod.setBounds(184, 9, 115, 18);
         pOdchodPrichod.add(rdbtnOdchod);
         rdbtnOdchod.setFont(new Font("Arial", Font.PLAIN, 22));
         
-        JRadioButton rdbtnPrichod = new JRadioButton("Pr\u00EDchod");
+        JRadioButton rdbtnPrichod = new JRadioButton(BUNDLE.getString("VyhladanieTrasyScreen.rdbtnPrichod.text")); //$NON-NLS-1$
         rdbtnPrichod.setBounds(329, 9, 115, 18);
         pOdchodPrichod.add(rdbtnPrichod);
         rdbtnPrichod.setFont(new Font("Arial", Font.PLAIN, 22));
