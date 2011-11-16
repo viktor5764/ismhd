@@ -246,7 +246,7 @@ public class VyhladanieTrasyScreen extends JFrame {
                 NajdeneTrasyScreen scr = new NajdeneTrasyScreen();
                 scr.setVisible(true);
             }
-        });
+        });//aegf
         bVyhladat.setFont(new Font("Arial", Font.BOLD, 17));
         bVyhladat.setBounds(510, 399, 114, 49);
         contentPane.add(bVyhladat);
