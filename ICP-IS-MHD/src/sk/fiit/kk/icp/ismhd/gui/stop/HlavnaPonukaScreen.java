@@ -26,14 +26,14 @@ import javax.swing.table.TableCellRenderer;
 import java.util.ResourceBundle;
 
 public class HlavnaPonukaScreen extends JFrame {
-    //private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
-    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_EN"); //$NON-NLS-1$
+    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
+    //private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_EN"); //$NON-NLS-1$
 
     private static final long serialVersionUID = -2332388519311531223L;
     private JPanel contentPane;
     private JLabel lbZochova;
-    private JLabel label;
-    private JLabel lbNewLabel;
+    private JLabel lbAktualnyCas;
+    private JLabel lbDatumDenTeplota;
     private JButton bCestovnePoriadky;
     private JButton bVyhladatSpojenie;
     private JButton bMapa;
@@ -46,7 +46,7 @@ public class HlavnaPonukaScreen extends JFrame {
     private JTable table;
     private JLabel lbLinka;
     private JLabel lbSmer;
-    private JLabel lbas;
+    private JLabel lbCas;
 
     /**
      * Launch the application.
@@ -95,22 +95,22 @@ public class HlavnaPonukaScreen extends JFrame {
         lbZochova.setBounds(204, 0, 256, 65);
         contentPane.add(lbZochova);
         
-        label = new JLabel("13:42:05");
-        label.setOpaque(true);
-        label.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-        label.setFont(new Font("Arial", Font.PLAIN, 46));
-        label.setBounds(0, 0, 201, 65);
-        label.setBackground(new Color(255, 204, 153));
-        contentPane.add(label);
+        lbAktualnyCas = new JLabel("13:42:05");
+        lbAktualnyCas.setOpaque(true);
+        lbAktualnyCas.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+        lbAktualnyCas.setFont(new Font("Arial", Font.PLAIN, 46));
+        lbAktualnyCas.setBounds(0, 0, 201, 65);
+        lbAktualnyCas.setBackground(new Color(255, 204, 153));
+        contentPane.add(lbAktualnyCas);
         
-        lbNewLabel = new JLabel("<html><center>22. apr\u00EDl 2015<br>\r\nPondelok<br>\r\n22\u00B0C</center></html>");
-        lbNewLabel.setOpaque(true);
-        lbNewLabel.setBackground(new Color(255, 204, 153));
-        lbNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        lbNewLabel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-        lbNewLabel.setFont(new Font("Arial", Font.PLAIN, 17));
-        lbNewLabel.setBounds(463, 0, 171, 65);
-        contentPane.add(lbNewLabel);
+        lbDatumDenTeplota = new JLabel(BUNDLE.getString("HlavnaPonukaScreen.lbDatumDenTeplota.text")); //$NON-NLS-1$
+        lbDatumDenTeplota.setOpaque(true);
+        lbDatumDenTeplota.setBackground(new Color(255, 204, 153));
+        lbDatumDenTeplota.setHorizontalAlignment(SwingConstants.CENTER);
+        lbDatumDenTeplota.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+        lbDatumDenTeplota.setFont(new Font("Arial", Font.PLAIN, 17));
+        lbDatumDenTeplota.setBounds(463, 0, 171, 65);
+        contentPane.add(lbDatumDenTeplota);
         
         bCestovnePoriadky = new JButton(BUNDLE.getString("HlavnaPonukaScreen.bCestovnePoriadky.text")); //$NON-NLS-1$
         bCestovnePoriadky.addActionListener(new ActionListener() {
@@ -297,22 +297,22 @@ public class HlavnaPonukaScreen extends JFrame {
         table.setBounds(153, 132, 460, 262);
         contentPane.add(table);
         
-        lbLinka = new JLabel("Linka");
+        lbLinka = new JLabel(BUNDLE.getString("HlavnaPonukaScreen.lbLinka.text")); //$NON-NLS-1$
         lbLinka.setHorizontalAlignment(SwingConstants.CENTER);
         lbLinka.setFont(new Font("Arial", Font.PLAIN, 22));
         lbLinka.setBounds(171, 96, 89, 24);
         contentPane.add(lbLinka);
         
-        lbSmer = new JLabel("Smer");
+        lbSmer = new JLabel(BUNDLE.getString("HlavnaPonukaScreen.lbSmer.text")); //$NON-NLS-1$
         lbSmer.setHorizontalAlignment(SwingConstants.CENTER);
         lbSmer.setFont(new Font("Arial", Font.PLAIN, 22));
         lbSmer.setBounds(304, 96, 89, 24);
         contentPane.add(lbSmer);
         
-        lbas = new JLabel("\u010Cas");
-        lbas.setHorizontalAlignment(SwingConstants.CENTER);
-        lbas.setFont(new Font("Arial", Font.PLAIN, 22));
-        lbas.setBounds(489, 96, 89, 24);
-        contentPane.add(lbas);
+        lbCas = new JLabel(BUNDLE.getString("HlavnaPonukaScreen.lbCas.text")); //$NON-NLS-1$
+        lbCas.setHorizontalAlignment(SwingConstants.CENTER);
+        lbCas.setFont(new Font("Arial", Font.PLAIN, 22));
+        lbCas.setBounds(489, 96, 89, 24);
+        contentPane.add(lbCas);
     }
 }

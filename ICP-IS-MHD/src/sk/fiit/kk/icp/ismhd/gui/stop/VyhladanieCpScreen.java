@@ -30,10 +30,10 @@ public class VyhladanieCpScreen extends JFrame {
     private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
 
     private JPanel contentPane;
-    private JLabel lbTitle;
+    private JLabel lbTitleCestovnePoriadky;
     private JLabel lbCas;
-    private JLabel lbDatum;
-    private JLabel lbVychodiskovaZastavka;
+    private JLabel lbDatumDenTeplota;
+    private JLabel lbLinka;
     private JButton bVyhladat;
     private JButton bSpat;
     private TitledBorder tbDestBorder;
@@ -72,17 +72,17 @@ public class VyhladanieCpScreen extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
         
-        lbTitle = new JLabel(BUNDLE.getString("VyhladanieCpScreen.lbTitle.text")); //$NON-NLS-1$
-        lbTitle.setOpaque(true);
-        lbTitle.setHorizontalAlignment(SwingConstants.CENTER);
-        lbTitle.setHorizontalTextPosition(SwingConstants.CENTER);
-        lbTitle.setForeground(Color.BLUE);
-        lbTitle.setFont(new Font("Arial", Font.PLAIN, 28));
-        lbTitle.setBorder(new LineBorder(Color.BLUE, 2));
-        lbTitle.setBackground(Color.WHITE);
-        lbTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
-        lbTitle.setBounds(204, 0, 256, 65);
-        contentPane.add(lbTitle);
+        lbTitleCestovnePoriadky = new JLabel(BUNDLE.getString("VyhladanieCpScreen.lbTitleCestovnePoriadky.text")); //$NON-NLS-1$
+        lbTitleCestovnePoriadky.setOpaque(true);
+        lbTitleCestovnePoriadky.setHorizontalAlignment(SwingConstants.CENTER);
+        lbTitleCestovnePoriadky.setHorizontalTextPosition(SwingConstants.CENTER);
+        lbTitleCestovnePoriadky.setForeground(Color.BLUE);
+        lbTitleCestovnePoriadky.setFont(new Font("Arial", Font.PLAIN, 28));
+        lbTitleCestovnePoriadky.setBorder(new LineBorder(Color.BLUE, 2));
+        lbTitleCestovnePoriadky.setBackground(Color.WHITE);
+        lbTitleCestovnePoriadky.setAlignmentX(Component.CENTER_ALIGNMENT);
+        lbTitleCestovnePoriadky.setBounds(204, 0, 256, 65);
+        contentPane.add(lbTitleCestovnePoriadky);
         
         lbCas = new JLabel("13:42:05");
         lbCas.setOpaque(true);
@@ -92,14 +92,14 @@ public class VyhladanieCpScreen extends JFrame {
         lbCas.setBounds(0, 0, 201, 65);
         contentPane.add(lbCas);
         
-        lbDatum = new JLabel("<html><center>22. apr\u00EDl 2015<br>\r\nPondelok<br>\r\n22\u00B0C</center></html>");
-        lbDatum.setBackground(new Color(255, 204, 153));
-        lbDatum.setOpaque(true);
-        lbDatum.setHorizontalAlignment(SwingConstants.CENTER);
-        lbDatum.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-        lbDatum.setFont(new Font("Arial", Font.PLAIN, 17));
-        lbDatum.setBounds(463, 0, 171, 65);
-        contentPane.add(lbDatum);
+        lbDatumDenTeplota = new JLabel(BUNDLE.getString("VyhladanieCpScreen.lbDatumDenTeplota.text")); //$NON-NLS-1$
+        lbDatumDenTeplota.setBackground(new Color(255, 204, 153));
+        lbDatumDenTeplota.setOpaque(true);
+        lbDatumDenTeplota.setHorizontalAlignment(SwingConstants.CENTER);
+        lbDatumDenTeplota.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+        lbDatumDenTeplota.setFont(new Font("Arial", Font.PLAIN, 17));
+        lbDatumDenTeplota.setBounds(463, 0, 171, 65);
+        contentPane.add(lbDatumDenTeplota);
         
         bVyhladat = new JButton(BUNDLE.getString("VyhladanieCpScreen.bVyhladat.text")); //$NON-NLS-1$
         bVyhladat.addActionListener(new ActionListener() {
@@ -127,24 +127,24 @@ public class VyhladanieCpScreen extends JFrame {
         bSpat.setBounds(9, 399, 114, 49);
         contentPane.add(bSpat);
         
-        JComboBox comboBox_1 = new JComboBox();
-        comboBox_1.setBounds(223, 115, 237, 47);
-        contentPane.add(comboBox_1);
-        comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "9", "10", "39", "119", "N31", "N34"}));
-        comboBox_1.setFont(new Font("SansSerif", Font.PLAIN, 18));
+        JComboBox comboBoxLinka = new JComboBox();
+        comboBoxLinka.setBounds(223, 115, 237, 47);
+        contentPane.add(comboBoxLinka);
+        comboBoxLinka.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "9", "10", "39", "119", "N31", "N34"}));
+        comboBoxLinka.setFont(new Font("SansSerif", Font.PLAIN, 18));
         
-        JComboBox comboBox = new JComboBox();
-        comboBox.setBounds(223, 328, 237, 47);
-        contentPane.add(comboBox);
-        comboBox.setFont(new Font("SansSerif", Font.PLAIN, 18));
-        comboBox.setModel(new DefaultComboBoxModel(new String[] {"Ag\u00E1tov\u00E1", "Alexyho", "Astronomick\u00E1", "Aupark", "Autobusov\u00E1 stanica", "Avion", "Bajkalsk\u00E1", "Botanick\u00E1 z\u00E1hrada", "Chatam S\u00F3fer", "Cintor\u00EDn Sl\u00E1v. \u00FAdolie", "\u010Cunovo", "Gagarinova", "Kop\u010Dany", "Lafranconi", "Ra\u010Dianske m\u00FDto", "SAV", "S\u00FAhvezdn\u00E1", "\u0160pit\u00E1lska", "Telev\u00EDzia", "Trnavsk\u00E9 m\u00FDto", "Vazovova", "Zochova", "\u017DST Nov\u00E9 Mesto"}));
-        comboBox.setSelectedIndex(21);
+        JComboBox comboBoxZoZastavky = new JComboBox();
+        comboBoxZoZastavky.setBounds(223, 328, 237, 47);
+        contentPane.add(comboBoxZoZastavky);
+        comboBoxZoZastavky.setFont(new Font("SansSerif", Font.PLAIN, 18));
+        comboBoxZoZastavky.setModel(new DefaultComboBoxModel(new String[] {"Ag\u00E1tov\u00E1", "Alexyho", "Astronomick\u00E1", "Aupark", "Autobusov\u00E1 stanica", "Avion", "Bajkalsk\u00E1", "Botanick\u00E1 z\u00E1hrada", "Chatam S\u00F3fer", "Cintor\u00EDn Sl\u00E1v. \u00FAdolie", "\u010Cunovo", "Gagarinova", "Kop\u010Dany", "Lafranconi", "Ra\u010Dianske m\u00FDto", "SAV", "S\u00FAhvezdn\u00E1", "\u0160pit\u00E1lska", "Telev\u00EDzia", "Trnavsk\u00E9 m\u00FDto", "Vazovova", "Zochova", "\u017DST Nov\u00E9 Mesto"}));
+        comboBoxZoZastavky.setSelectedIndex(21);
         
-        lbVychodiskovaZastavka = new JLabel(BUNDLE.getString("VyhladanieCpScreen.lbVychodiskovaZastavka.text")); //$NON-NLS-1$
-        lbVychodiskovaZastavka.setHorizontalAlignment(SwingConstants.LEFT);
-        lbVychodiskovaZastavka.setBounds(223, 78, 237, 26);
-        contentPane.add(lbVychodiskovaZastavka);
-        lbVychodiskovaZastavka.setFont(new Font("Arial", Font.PLAIN, 22));
+        lbLinka = new JLabel(BUNDLE.getString("VyhladanieCpScreen.lbLinka.text")); //$NON-NLS-1$
+        lbLinka.setHorizontalAlignment(SwingConstants.LEFT);
+        lbLinka.setBounds(223, 78, 237, 26);
+        contentPane.add(lbLinka);
+        lbLinka.setFont(new Font("Arial", Font.PLAIN, 22));
         
         tbDestBorder = new TitledBorder(null, BUNDLE.getString("VyhladanieCpScreen.tbDestBorder.text"), TitledBorder.LEADING, TitledBorder.TOP, null, null);
         
@@ -155,19 +155,19 @@ public class VyhladanieCpScreen extends JFrame {
         contentPane.add(panel);
         panel.setLayout(null);
         
-        JRadioButton rdbtnTrnavskMto = new JRadioButton("Trnavsk\u00E9 m\u00FDto");
-        rdbtnTrnavskMto.setSelected(true);
-        rdbtnTrnavskMto.setBounds(16, 27, 112, 18);
-        panel.add(rdbtnTrnavskMto);
+        JRadioButton rdbtnSmer1 = new JRadioButton("Trnavsk\u00E9 m\u00FDto");
+        rdbtnSmer1.setSelected(true);
+        rdbtnSmer1.setBounds(16, 27, 112, 18);
+        panel.add(rdbtnSmer1);
         
-        JRadioButton rdbtnNewRadioButton = new JRadioButton("Cintor\u00EDn Sl\u00E1v. \u00FAdolie");
-        rdbtnNewRadioButton.setBounds(16, 57, 145, 18);
-        panel.add(rdbtnNewRadioButton);
+        JRadioButton rdbtnSmer2 = new JRadioButton("Cintor\u00EDn Sl\u00E1v. \u00FAdolie");
+        rdbtnSmer2.setBounds(16, 57, 145, 18);
+        panel.add(rdbtnSmer2);
         
-        JLabel lblZoZastvky = new JLabel(BUNDLE.getString("VyhladanieCpScreen.lblZoZastavky.text")); //$NON-NLS-1$
-        lblZoZastvky.setHorizontalAlignment(SwingConstants.LEFT);
-        lblZoZastvky.setFont(new Font("Arial", Font.PLAIN, 22));
-        lblZoZastvky.setBounds(222, 295, 208, 26);
-        contentPane.add(lblZoZastvky);
+        JLabel lbZoZastavky = new JLabel(BUNDLE.getString("VyhladanieCpScreen.lbZoZastavky.text")); //$NON-NLS-1$
+        lbZoZastavky.setHorizontalAlignment(SwingConstants.LEFT);
+        lbZoZastavky.setFont(new Font("Arial", Font.PLAIN, 22));
+        lbZoZastavky.setBounds(222, 295, 208, 26);
+        contentPane.add(lbZoZastavky);
     }
 }

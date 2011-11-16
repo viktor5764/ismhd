@@ -27,23 +27,25 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import java.awt.GridLayout;
 import javax.swing.border.EtchedBorder;
+import java.util.ResourceBundle;
 
 public class PodrobnostiTrasyScreen extends JFrame {
+    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
 
     private JPanel contentPane;
-    private JLabel lbZochova;
-    private JLabel label;
-    private JLabel lbNewLabel;
+    private JLabel lbTitleDetailySpojenia;
+    private JLabel lbAktualnyCas;
+    private JLabel lbDatumDenTeplota;
     private JButton bSpat;
     private JTable table;
-    private JLabel lbZochovast;
+    private JLabel lbOdkialKam;
     private JPanel panel;
-    private JLabel lbDtum;
-    private JLabel label_1;
-    private JLabel lbas;
-    private JLabel label_2;
+    private JLabel lbDatum;
+    private JLabel lbDatumValue;
+    private JLabel lbCas;
+    private JLabel lbCasValue;
     private JLabel lbTrvanie;
-    private JLabel lbMint;
+    private JLabel lbTrvanieValue;
     private JLabel lbTrasa;
     private JLabel lbPodrobnosti;
 
@@ -81,36 +83,36 @@ public class PodrobnostiTrasyScreen extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
         
-        lbZochova = new JLabel("Detaily spojenia");
-        lbZochova.setOpaque(true);
-        lbZochova.setHorizontalAlignment(SwingConstants.CENTER);
-        lbZochova.setHorizontalTextPosition(SwingConstants.CENTER);
-        lbZochova.setForeground(Color.BLUE);
-        lbZochova.setFont(new Font("Arial", Font.PLAIN, 36));
-        lbZochova.setBorder(new LineBorder(Color.BLUE, 2));
-        lbZochova.setBackground(Color.WHITE);
-        lbZochova.setAlignmentX(Component.CENTER_ALIGNMENT);
-        lbZochova.setBounds(204, 0, 256, 65);
-        contentPane.add(lbZochova);
+        lbTitleDetailySpojenia = new JLabel(BUNDLE.getString("PodrobnostiTrasyScreen.lbTitleDetailySpojenia.text")); //$NON-NLS-1$
+        lbTitleDetailySpojenia.setOpaque(true);
+        lbTitleDetailySpojenia.setHorizontalAlignment(SwingConstants.CENTER);
+        lbTitleDetailySpojenia.setHorizontalTextPosition(SwingConstants.CENTER);
+        lbTitleDetailySpojenia.setForeground(Color.BLUE);
+        lbTitleDetailySpojenia.setFont(new Font("Arial", Font.PLAIN, 36));
+        lbTitleDetailySpojenia.setBorder(new LineBorder(Color.BLUE, 2));
+        lbTitleDetailySpojenia.setBackground(Color.WHITE);
+        lbTitleDetailySpojenia.setAlignmentX(Component.CENTER_ALIGNMENT);
+        lbTitleDetailySpojenia.setBounds(204, 0, 256, 65);
+        contentPane.add(lbTitleDetailySpojenia);
         
-        label = new JLabel("13:42:05");
-        label.setOpaque(true);
-        label.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-        label.setFont(new Font("Arial", Font.PLAIN, 46));
-        label.setBounds(0, 0, 201, 65);
-        label.setBackground(new Color(255, 204, 153));
-        contentPane.add(label);
+        lbAktualnyCas = new JLabel("13:42:05");
+        lbAktualnyCas.setOpaque(true);
+        lbAktualnyCas.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+        lbAktualnyCas.setFont(new Font("Arial", Font.PLAIN, 46));
+        lbAktualnyCas.setBounds(0, 0, 201, 65);
+        lbAktualnyCas.setBackground(new Color(255, 204, 153));
+        contentPane.add(lbAktualnyCas);
         
-        lbNewLabel = new JLabel("<html><center>22. apr\u00EDl 2015<br>\r\nPondelok<br>\r\n22\u00B0C</center></html>");
-        lbNewLabel.setOpaque(true);
-        lbNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        lbNewLabel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-        lbNewLabel.setFont(new Font("Arial", Font.PLAIN, 17));
-        lbNewLabel.setBounds(463, 0, 171, 65);
-        lbNewLabel.setBackground(new Color(255, 204, 153));
-        contentPane.add(lbNewLabel);
+        lbDatumDenTeplota = new JLabel(BUNDLE.getString("PodrobnostiTrasyScreen.lbDatumDenTeplota.text")); //$NON-NLS-1$
+        lbDatumDenTeplota.setOpaque(true);
+        lbDatumDenTeplota.setHorizontalAlignment(SwingConstants.CENTER);
+        lbDatumDenTeplota.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+        lbDatumDenTeplota.setFont(new Font("Arial", Font.PLAIN, 17));
+        lbDatumDenTeplota.setBounds(463, 0, 171, 65);
+        lbDatumDenTeplota.setBackground(new Color(255, 204, 153));
+        contentPane.add(lbDatumDenTeplota);
         
-        bSpat = new JButton("<html><center>Sp\u00E4\u0165<br></center></html>");
+        bSpat = new JButton(BUNDLE.getString("PodrobnostiTrasyScreen.bSpat.text")); //$NON-NLS-1$
         bSpat.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 PodrobnostiTrasyScreen.this.dispose();
@@ -226,13 +228,13 @@ public class PodrobnostiTrasyScreen extends JFrame {
         table.setBounds(295, 144, 332, 243);
         contentPane.add(table);
         
-        lbZochovast = new JLabel("Zochova \u2192 \u017DST Nov\u00E9 Mesto");
-        lbZochovast.setForeground(Color.BLUE);
-        lbZochovast.setFont(new Font("Arial", Font.BOLD, 27));
-        lbZochovast.setHorizontalTextPosition(SwingConstants.CENTER);
-        lbZochovast.setHorizontalAlignment(SwingConstants.CENTER);
-        lbZochovast.setBounds(9, 78, 597, 31);
-        contentPane.add(lbZochovast);
+        lbOdkialKam = new JLabel("Zochova \u2192 \u017DST Nov\u00E9 Mesto");
+        lbOdkialKam.setForeground(Color.BLUE);
+        lbOdkialKam.setFont(new Font("Arial", Font.BOLD, 27));
+        lbOdkialKam.setHorizontalTextPosition(SwingConstants.CENTER);
+        lbOdkialKam.setHorizontalAlignment(SwingConstants.CENTER);
+        lbOdkialKam.setBounds(9, 78, 597, 31);
+        contentPane.add(lbOdkialKam);
         
         panel = new JPanel();
         panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -241,36 +243,36 @@ public class PodrobnostiTrasyScreen extends JFrame {
         contentPane.add(panel);
         panel.setLayout(new GridLayout(0, 2, 0, 0));
         
-        lbDtum = new JLabel("D\u00E1tum:");
-        lbDtum.setFont(new Font("SansSerif", Font.PLAIN, 18));
-        panel.add(lbDtum);
+        lbDatum = new JLabel(BUNDLE.getString("PodrobnostiTrasyScreen.lbDatum.text")); //$NON-NLS-1$
+        lbDatum.setFont(new Font("SansSerif", Font.PLAIN, 18));
+        panel.add(lbDatum);
         
-        label_1 = new JLabel("22.4.2015");
-        label_1.setFont(new Font("SansSerif", Font.BOLD, 18));
-        panel.add(label_1);
+        lbDatumValue = new JLabel("22.4.2015");
+        lbDatumValue.setFont(new Font("SansSerif", Font.BOLD, 18));
+        panel.add(lbDatumValue);
         
-        lbas = new JLabel("\u010Cas:");
-        lbas.setFont(new Font("SansSerif", Font.PLAIN, 18));
-        panel.add(lbas);
+        lbCas = new JLabel(BUNDLE.getString("PodrobnostiTrasyScreen.lbCas.text")); //$NON-NLS-1$
+        lbCas.setFont(new Font("SansSerif", Font.PLAIN, 18));
+        panel.add(lbCas);
         
-        label_2 = new JLabel("14:00 - 14:29");
-        label_2.setFont(new Font("SansSerif", Font.BOLD, 18));
-        panel.add(label_2);
+        lbCasValue = new JLabel("14:00 - 14:29");
+        lbCasValue.setFont(new Font("SansSerif", Font.BOLD, 18));
+        panel.add(lbCasValue);
         
-        lbTrvanie = new JLabel("Trvanie:");
+        lbTrvanie = new JLabel(BUNDLE.getString("PodrobnostiTrasyScreen.lbTrvanie.text")); //$NON-NLS-1$
         lbTrvanie.setFont(new Font("SansSerif", Font.PLAIN, 18));
         panel.add(lbTrvanie);
         
-        lbMint = new JLabel("29 min\u00FAt");
-        lbMint.setFont(new Font("SansSerif", Font.BOLD, 18));
-        panel.add(lbMint);
+        lbTrvanieValue = new JLabel("29 min\u00FAt");
+        lbTrvanieValue.setFont(new Font("SansSerif", Font.BOLD, 18));
+        panel.add(lbTrvanieValue);
         
-        lbTrasa = new JLabel("Trasa:");
+        lbTrasa = new JLabel(BUNDLE.getString("PodrobnostiTrasyScreen.lbTrasa.text")); //$NON-NLS-1$
         lbTrasa.setFont(new Font("Arial", Font.PLAIN, 22));
         lbTrasa.setBounds(295, 121, 141, 16);
         contentPane.add(lbTrasa);
         
-        lbPodrobnosti = new JLabel("Podrobnosti:");
+        lbPodrobnosti = new JLabel(BUNDLE.getString("PodrobnostiTrasyScreen.lbPodrobnosti.text")); //$NON-NLS-1$
         lbPodrobnosti.setFont(new Font("Arial", Font.PLAIN, 22));
         lbPodrobnosti.setBounds(9, 121, 141, 16);
         contentPane.add(lbPodrobnosti);

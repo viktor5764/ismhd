@@ -28,6 +28,7 @@ import java.util.Calendar;
 import javax.swing.SpinnerListModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JRadioButton;
 
 public class VyhladanieTrasyScreen extends JFrame {
 
@@ -52,6 +53,7 @@ public class VyhladanieTrasyScreen extends JFrame {
     private JLabel lbMesiac;
     private JButton bVyhada;
     private JButton bSp;
+    private JPanel panel_1;
 
     /**
      * Launch the application.
@@ -138,7 +140,7 @@ public class VyhladanieTrasyScreen extends JFrame {
         bNewButton = new JButton("");
         bNewButton.setBounds(237, 42, 65, 48);
         pVychodiskova.add(bNewButton);
-        bNewButton.setIcon(new ImageIcon(VyhladanieTrasyScreen.class.getResource("/sk/fiit/kucsera_kovalcik/icp/ismhd/icon_map.gif")));
+        bNewButton.setIcon(new ImageIcon(VyhladanieTrasyScreen.class.getResource("/sk/fiit/kk/icp/ismhd/icon_map.gif")));
         
         pCielova = new JPanel();
         pCielova.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -159,14 +161,14 @@ public class VyhladanieTrasyScreen extends JFrame {
         pCielova.add(lbCieovZastvka);
         
         button = new JButton("");
-        button.setIcon(new ImageIcon(VyhladanieTrasyScreen.class.getResource("/sk/fiit/kucsera_kovalcik/icp/ismhd/icon_map.gif")));
+        button.setIcon(new ImageIcon(VyhladanieTrasyScreen.class.getResource("/sk/fiit/kk/icp/ismhd/icon_map.gif")));
         button.setBounds(239, 42, 65, 48);
         pCielova.add(button);
         
         pCas = new JPanel();
         pCas.setBackground(new Color(255, 235, 205));
         pCas.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-        pCas.setBounds(6, 189, 308, 132);
+        pCas.setBounds(6, 255, 308, 132);
         contentPane.add(pCas);
         pCas.setLayout(null);
         
@@ -206,7 +208,7 @@ public class VyhladanieTrasyScreen extends JFrame {
         panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
         panel.setLayout(null);
         panel.setBackground(new Color(255, 235, 205));
-        panel.setBounds(318, 189, 308, 132);
+        panel.setBounds(318, 255, 308, 132);
         contentPane.add(panel);
         
         JSpinner spinner_2 = new JSpinner();
@@ -261,5 +263,22 @@ public class VyhladanieTrasyScreen extends JFrame {
         bSp.setFont(new Font("Arial", Font.BOLD, 17));
         bSp.setBounds(9, 399, 114, 49);
         contentPane.add(bSp);
+        
+        panel_1 = new JPanel();
+        panel_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+        panel_1.setBounds(6, 200, 621, 42);
+        contentPane.add(panel_1);
+        panel_1.setLayout(null);
+        panel_1.setBackground(new Color(255, 235, 205));
+        
+        JRadioButton rdbtnNewRadioButton = new JRadioButton("Odchod");
+        rdbtnNewRadioButton.setBounds(191, 9, 115, 18);
+        panel_1.add(rdbtnNewRadioButton);
+        rdbtnNewRadioButton.setFont(new Font("Arial", Font.PLAIN, 22));
+        
+        JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Pr\u00EDchod");
+        rdbtnNewRadioButton_1.setBounds(320, 9, 115, 18);
+        panel_1.add(rdbtnNewRadioButton_1);
+        rdbtnNewRadioButton_1.setFont(new Font("Arial", Font.PLAIN, 22));
     }
 }

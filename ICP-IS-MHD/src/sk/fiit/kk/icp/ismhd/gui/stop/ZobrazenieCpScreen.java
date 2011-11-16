@@ -20,14 +20,16 @@ import javax.swing.border.TitledBorder;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ResourceBundle;
 
 public class ZobrazenieCpScreen extends JFrame {
+    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
 
     private JPanel contentPane;
-    private JLabel lbTitle;
-    private JLabel lbCas;
-    private JLabel lbDatum;
-    private JButton bSp;
+    private JLabel lbTitleLinkaCislo;
+    private JLabel lbAktualnyCas;
+    private JLabel lbDatumDenTeplota;
+    private JButton bSpat;
 
     /**
      * Launch the application.
@@ -63,37 +65,37 @@ public class ZobrazenieCpScreen extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
         
-        lbTitle = new JLabel("Linka 31");
-        lbTitle.setOpaque(true);
-        lbTitle.setHorizontalAlignment(SwingConstants.CENTER);
-        lbTitle.setHorizontalTextPosition(SwingConstants.CENTER);
-        lbTitle.setForeground(Color.BLUE);
-        lbTitle.setFont(new Font("Arial", Font.PLAIN, 44));
-        lbTitle.setBorder(new LineBorder(Color.BLUE, 2));
-        lbTitle.setBackground(Color.WHITE);
-        lbTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
-        lbTitle.setBounds(204, 0, 256, 65);
-        contentPane.add(lbTitle);
+        lbTitleLinkaCislo = new JLabel(BUNDLE.getString("ZobrazenieCpScreen.lbTitleLinkaCislo.text") + 31); //$NON-NLS-1$
+        lbTitleLinkaCislo.setOpaque(true);
+        lbTitleLinkaCislo.setHorizontalAlignment(SwingConstants.CENTER);
+        lbTitleLinkaCislo.setHorizontalTextPosition(SwingConstants.CENTER);
+        lbTitleLinkaCislo.setForeground(Color.BLUE);
+        lbTitleLinkaCislo.setFont(new Font("Arial", Font.PLAIN, 44));
+        lbTitleLinkaCislo.setBorder(new LineBorder(Color.BLUE, 2));
+        lbTitleLinkaCislo.setBackground(Color.WHITE);
+        lbTitleLinkaCislo.setAlignmentX(Component.CENTER_ALIGNMENT);
+        lbTitleLinkaCislo.setBounds(204, 0, 256, 65);
+        contentPane.add(lbTitleLinkaCislo);
         
-        lbCas = new JLabel("13:42:05");
-        lbCas.setOpaque(true);
-        lbCas.setBackground(new Color(255, 204, 153));
-        lbCas.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-        lbCas.setFont(new Font("Arial", Font.PLAIN, 46));
-        lbCas.setBounds(0, 0, 201, 65);
-        contentPane.add(lbCas);
+        lbAktualnyCas = new JLabel("13:42:05");
+        lbAktualnyCas.setOpaque(true);
+        lbAktualnyCas.setBackground(new Color(255, 204, 153));
+        lbAktualnyCas.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+        lbAktualnyCas.setFont(new Font("Arial", Font.PLAIN, 46));
+        lbAktualnyCas.setBounds(0, 0, 201, 65);
+        contentPane.add(lbAktualnyCas);
         
-        lbDatum = new JLabel("<html><center>22. apr\u00EDl 2015<br>\r\nPondelok<br>\r\n22\u00B0C</center></html>");
-        lbDatum.setBackground(new Color(255, 204, 153));
-        lbDatum.setOpaque(true);
-        lbDatum.setHorizontalAlignment(SwingConstants.CENTER);
-        lbDatum.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-        lbDatum.setFont(new Font("Arial", Font.PLAIN, 17));
-        lbDatum.setBounds(463, 0, 171, 65);
-        contentPane.add(lbDatum);
+        lbDatumDenTeplota = new JLabel(BUNDLE.getString("ZobrazenieCpScreen.lbDatumDenTeplota.text")); //$NON-NLS-1$
+        lbDatumDenTeplota.setBackground(new Color(255, 204, 153));
+        lbDatumDenTeplota.setOpaque(true);
+        lbDatumDenTeplota.setHorizontalAlignment(SwingConstants.CENTER);
+        lbDatumDenTeplota.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+        lbDatumDenTeplota.setFont(new Font("Arial", Font.PLAIN, 17));
+        lbDatumDenTeplota.setBounds(463, 0, 171, 65);
+        contentPane.add(lbDatumDenTeplota);
         
-        bSp = new JButton("Sp\u00E4\u0165");
-        bSp.addActionListener(new ActionListener() {
+        bSpat = new JButton(BUNDLE.getString("ZobrazenieCpScreen.bSpat.text")); //$NON-NLS-1$
+        bSpat.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ZobrazenieCpScreen.this.dispose();
                 ZobrazenieCpScreen.this.setVisible(false);
@@ -101,13 +103,13 @@ public class ZobrazenieCpScreen extends JFrame {
                 scr.setVisible(true);
             }
         });
-        bSp.setFont(new Font("Arial", Font.BOLD, 17));
-        bSp.setBounds(9, 423, 114, 30);
-        contentPane.add(bSp);
+        bSpat.setFont(new Font("Arial", Font.BOLD, 17));
+        bSpat.setBounds(9, 423, 114, 30);
+        contentPane.add(bSpat);
         
-        JLabel label = new JLabel("");
-        label.setIcon(new ImageIcon(ZobrazenieCpScreen.class.getResource("/sk/fiit/kucsera_kovalcik/icp/ismhd/cp.jpg")));
-        label.setBounds(50, 67, 545, 355);
-        contentPane.add(label);
+        JLabel lbCestovnyPoriadokPicture = new JLabel("");
+        lbCestovnyPoriadokPicture.setIcon(new ImageIcon(ZobrazenieCpScreen.class.getResource("/sk/fiit/kk/icp/ismhd/cp.jpg")));
+        lbCestovnyPoriadokPicture.setBounds(50, 67, 545, 355);
+        contentPane.add(lbCestovnyPoriadokPicture);
     }
 }

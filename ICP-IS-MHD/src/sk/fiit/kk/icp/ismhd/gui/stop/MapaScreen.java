@@ -20,11 +20,13 @@ import javax.swing.border.TitledBorder;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ResourceBundle;
 
 public class MapaScreen extends JFrame {
+    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
 
     private JPanel contentPane;
-    private JButton bSp;
+    private JButton bSpat;
     private JButton bTelevzia;
     private JButton bGrunty;
     private JButton bBotanickZhrada;
@@ -69,8 +71,8 @@ public class MapaScreen extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
         
-        bSp = new JButton("Sp\u00E4\u0165");
-        bSp.addActionListener(new ActionListener() {
+        bSpat = new JButton(BUNDLE.getString("MapaScreen.bSpat.text")); //$NON-NLS-1$
+        bSpat.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 MapaScreen.this.dispose();
                 MapaScreen.this.setVisible(false);
@@ -78,10 +80,10 @@ public class MapaScreen extends JFrame {
                 scr.setVisible(true);
             }
         });
-        bSp.setBorder(new LineBorder(new Color(0, 0, 255), 2, true));
-        bSp.setFont(new Font("Arial", Font.BOLD, 17));
-        bSp.setBounds(9, 399, 114, 49);
-        contentPane.add(bSp);
+        bSpat.setBorder(new LineBorder(new Color(0, 0, 255), 2, true));
+        bSpat.setFont(new Font("Arial", Font.BOLD, 17));
+        bSpat.setBounds(9, 399, 114, 49);
+        contentPane.add(bSpat);
         
         JButton btnZoo = new JButton("ZOO");
         btnZoo.addActionListener(new ActionListener() {
@@ -162,7 +164,7 @@ public class MapaScreen extends JFrame {
         
         JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setOpaque(true);
-        lblNewLabel.setIcon(new ImageIcon(MapaScreen.class.getResource("/sk/fiit/kucsera_kovalcik/icp/ismhd/map.GIF")));
+        lblNewLabel.setIcon(new ImageIcon(MapaScreen.class.getResource("/sk/fiit/kk/icp/ismhd/map.GIF")));
         lblNewLabel.setBounds(6, 6, 628, 441);
         contentPane.add(lblNewLabel);
     }

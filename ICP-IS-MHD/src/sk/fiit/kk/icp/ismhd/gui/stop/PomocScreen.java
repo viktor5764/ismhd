@@ -19,20 +19,22 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+import java.util.ResourceBundle;
 
 public class PomocScreen extends JFrame {
+    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
 
     private JPanel contentPane;
-    private JLabel lbZochova;
-    private JLabel label;
-    private JLabel lbNewLabel;
+    private JLabel lbTitlePomoc;
+    private JLabel lbAktualnyCas;
+    private JLabel lbDatumDenTeplota;
     private JButton bSk;
     private JButton bEn;
     private JButton bDe;
     private JButton bEs;
     private JButton bFr;
-    private JLabel lblCestovnPoriadky;
-    private JButton bSp;
+    private JLabel lblHelpText;
+    private JButton bSpat;
 
     /**
      * Launch the application.
@@ -68,67 +70,67 @@ public class PomocScreen extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
         
-        lbZochova = new JLabel("Pomoc");
-        lbZochova.setOpaque(true);
-        lbZochova.setHorizontalAlignment(SwingConstants.CENTER);
-        lbZochova.setHorizontalTextPosition(SwingConstants.CENTER);
-        lbZochova.setForeground(Color.BLUE);
-        lbZochova.setFont(new Font("Arial", Font.PLAIN, 46));
-        lbZochova.setBorder(new LineBorder(Color.BLUE, 2));
-        lbZochova.setBackground(Color.WHITE);
-        lbZochova.setAlignmentX(Component.CENTER_ALIGNMENT);
-        lbZochova.setBounds(204, 0, 256, 65);
-        contentPane.add(lbZochova);
+        lbTitlePomoc = new JLabel(BUNDLE.getString("PomocScreen.lbTitlePomoc.text")); //$NON-NLS-1$
+        lbTitlePomoc.setOpaque(true);
+        lbTitlePomoc.setHorizontalAlignment(SwingConstants.CENTER);
+        lbTitlePomoc.setHorizontalTextPosition(SwingConstants.CENTER);
+        lbTitlePomoc.setForeground(Color.BLUE);
+        lbTitlePomoc.setFont(new Font("Arial", Font.PLAIN, 46));
+        lbTitlePomoc.setBorder(new LineBorder(Color.BLUE, 2));
+        lbTitlePomoc.setBackground(Color.WHITE);
+        lbTitlePomoc.setAlignmentX(Component.CENTER_ALIGNMENT);
+        lbTitlePomoc.setBounds(204, 0, 256, 65);
+        contentPane.add(lbTitlePomoc);
         
-        label = new JLabel("13:42:05");
-        label.setBackground(new Color(255, 204, 153));
-        label.setOpaque(true);
-        label.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-        label.setFont(new Font("Arial", Font.PLAIN, 46));
-        label.setBounds(0, 0, 201, 65);
-        contentPane.add(label);
+        lbAktualnyCas = new JLabel("13:42:05");
+        lbAktualnyCas.setBackground(new Color(255, 204, 153));
+        lbAktualnyCas.setOpaque(true);
+        lbAktualnyCas.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+        lbAktualnyCas.setFont(new Font("Arial", Font.PLAIN, 46));
+        lbAktualnyCas.setBounds(0, 0, 201, 65);
+        contentPane.add(lbAktualnyCas);
         
-        lbNewLabel = new JLabel("<html><center>22. apr\u00EDl 2015<br>\r\nPondelok<br>\r\n22\u00B0C</center></html>");
-        lbNewLabel.setBackground(new Color(255, 204, 153));
-        lbNewLabel.setOpaque(true);
-        lbNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        lbNewLabel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-        lbNewLabel.setFont(new Font("Arial", Font.PLAIN, 17));
-        lbNewLabel.setBounds(463, 0, 171, 65);
-        contentPane.add(lbNewLabel);
+        lbDatumDenTeplota = new JLabel(BUNDLE.getString("PomocScreen.lbDatumDenTeplota.text")); //$NON-NLS-1$
+        lbDatumDenTeplota.setBackground(new Color(255, 204, 153));
+        lbDatumDenTeplota.setOpaque(true);
+        lbDatumDenTeplota.setHorizontalAlignment(SwingConstants.CENTER);
+        lbDatumDenTeplota.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+        lbDatumDenTeplota.setFont(new Font("Arial", Font.PLAIN, 17));
+        lbDatumDenTeplota.setBounds(463, 0, 171, 65);
+        contentPane.add(lbDatumDenTeplota);
         
         bSk = new JButton("");
-        bSk.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kucsera_kovalcik/icp/ismhd/flag_sk.GIF")));
+        bSk.setIcon(new ImageIcon(PomocScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_sk.GIF")));
         bSk.setBounds(135, 399, 97, 42);
         contentPane.add(bSk);
         
         bEn = new JButton("");
-        bEn.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kucsera_kovalcik/icp/ismhd/flag_en.GIF")));
+        bEn.setIcon(new ImageIcon(PomocScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_en.GIF")));
         bEn.setBounds(231, 399, 97, 42);
         contentPane.add(bEn);
         
         bDe = new JButton("");
-        bDe.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kucsera_kovalcik/icp/ismhd/flag_de.GIF")));
+        bDe.setIcon(new ImageIcon(PomocScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_de.GIF")));
         bDe.setBounds(328, 399, 97, 42);
         contentPane.add(bDe);
         
         bEs = new JButton("");
-        bEs.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kucsera_kovalcik/icp/ismhd/flag_es.GIF")));
+        bEs.setIcon(new ImageIcon(PomocScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_es.GIF")));
         bEs.setBounds(425, 399, 97, 42);
         contentPane.add(bEs);
         
         bFr = new JButton("");
-        bFr.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kucsera_kovalcik/icp/ismhd/flag_fr.GIF")));
+        bFr.setIcon(new ImageIcon(PomocScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_fr.GIF")));
         bFr.setBounds(522, 399, 97, 42);
         contentPane.add(bFr);
         
-        lblCestovnPoriadky = new JLabel("<html>\r\n<H2>Cestovn\u00E9 poriadky</H2>\r\nVyh\u013Eadanie cestovn\u00E9ho poriadku danej linky zo zvolenej zast\u00E1vky.<p>\r\nZvo\u013Ete linku, smer a zast\u00E1vku. Tla\u010Didlom <b>Vyh\u013Eada\u0165</b> zobraz\u00EDte cestovn\u00FD poriadok.\r\n<H2>Vyh\u013Eada\u0165 spojenie</H2>\r\nVyh\u013Eadanie spojenia medzi dvomi ur\u010Den\u00FDmi zast\u00E1vkami.<p>\r\nZadajte v\u00FDchodiskov\u00FA a cie\u013Eov\u00FA zast\u00E1vku bu\u010F v\u00FDberom zo zoznamu alebo v\u00FDberom z mapy. \u010Ealej nastavte \u010Das, pr\u00EDpadne i d\u00E1tum, a stla\u010Dte tla\u010Didlo <b>Vyh\u013Eada\u0165</b> pre zobrazenie vyhovuj\u00FAcich spojen\u00ED. Vyberte jedno z nich a tla\u010Didlom <b>Podrobnosti</b> zobraz\u00EDte detaily tohto spojenia.\r\n<H2>Mapa</H2>\r\nZistenie aktu\u00E1lnej polohy, zistenie odchodov vybran\u00EDm zast\u00E1vky z mapy.<p>\r\nStla\u010Den\u00EDm n\u00E1zvu zast\u00E1vky sa zobrazia vo\u013Eby s mo\u017Enos\u0165ami zobrazenia odchodov alebo vyh\u013Eadania spojenia do alebo zo zvolenej zast\u00E1vky.\r\n</html>");
-        lblCestovnPoriadky.setFont(new Font("SansSerif", Font.PLAIN, 12));
-        lblCestovnPoriadky.setBounds(24, 77, 595, 283);
-        contentPane.add(lblCestovnPoriadky);
+        lblHelpText = new JLabel(BUNDLE.getString("PomocScreen.lblHelpText.text")); //$NON-NLS-1$
+        lblHelpText.setFont(new Font("SansSerif", Font.PLAIN, 12));
+        lblHelpText.setBounds(24, 77, 595, 283);
+        contentPane.add(lblHelpText);
         
-        bSp = new JButton("Sp\u00E4\u0165");
-        bSp.addActionListener(new ActionListener() {
+        bSpat = new JButton(BUNDLE.getString("PomocScreen.bSpat.text")); //$NON-NLS-1$
+        bSpat.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 PomocScreen.this.dispose();
                 PomocScreen.this.setVisible(false);
@@ -136,8 +138,8 @@ public class PomocScreen extends JFrame {
                 scr.setVisible(true);
             }
         });
-        bSp.setFont(new Font("Arial", Font.BOLD, 17));
-        bSp.setBounds(9, 399, 114, 42);
-        contentPane.add(bSp);
+        bSpat.setFont(new Font("Arial", Font.BOLD, 17));
+        bSpat.setBounds(9, 399, 114, 42);
+        contentPane.add(bSpat);
     }
 }
