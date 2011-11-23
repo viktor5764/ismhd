@@ -36,6 +36,7 @@ public class VyhladanieTrasyScreen extends JFrame {
     private static ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
 
 
+
     private JPanel contentPane;
     private JLabel lbTitle;
     private JLabel lbAktualnyCas;

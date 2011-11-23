@@ -28,6 +28,7 @@ public class BusExteriorDisplay extends JFrame {
     /**
      * Launch the application.
      */
+    
     public static void main(String[] args) {
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
