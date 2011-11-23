@@ -48,7 +48,7 @@ public class MapaScreen extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    MapaScreen frame = new MapaScreen();
+                    MapaScreen frame = new MapaScreen(BUNDLE);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -59,8 +59,10 @@ public class MapaScreen extends JFrame {
 
     /**
      * Create the frame.
+     * @param bUNDLE2 
      */
-    public MapaScreen() {
+    public MapaScreen(ResourceBundle rb) {
+        this.BUNDLE = rb;
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 640, 480);

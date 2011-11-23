@@ -61,7 +61,7 @@ public class PodrobnostiTrasyScreen extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    PodrobnostiTrasyScreen frame = new PodrobnostiTrasyScreen();
+                    PodrobnostiTrasyScreen frame = new PodrobnostiTrasyScreen(BUNDLE);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -73,7 +73,8 @@ public class PodrobnostiTrasyScreen extends JFrame {
     /**
      * Create the frame.
      */
-    public PodrobnostiTrasyScreen() {
+    public PodrobnostiTrasyScreen(ResourceBundle rb) {
+        this.BUNDLE = rb;
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 640, 480);
@@ -117,7 +118,7 @@ public class PodrobnostiTrasyScreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 PodrobnostiTrasyScreen.this.dispose();
                 PodrobnostiTrasyScreen.this.setVisible(false);
-                VyhladanieTrasyScreen scr = new VyhladanieTrasyScreen();
+                VyhladanieTrasyScreen scr = new VyhladanieTrasyScreen(BUNDLE);
                 scr.setVisible(true);
             }
         });

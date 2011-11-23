@@ -50,7 +50,7 @@ public class VyhladanieCpScreen extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    VyhladanieCpScreen frame = new VyhladanieCpScreen();
+                    VyhladanieCpScreen frame = new VyhladanieCpScreen(BUNDLE);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -61,8 +61,10 @@ public class VyhladanieCpScreen extends JFrame {
 
     /**
      * Create the frame.
+     * @param rb 
      */
-    public VyhladanieCpScreen() {
+    public VyhladanieCpScreen(ResourceBundle rb) {
+        this.BUNDLE = rb;
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 640, 480);
@@ -106,7 +108,7 @@ public class VyhladanieCpScreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 VyhladanieCpScreen.this.dispose();
                 VyhladanieCpScreen.this.setVisible(false);
-                ZobrazenieCpScreen scr = new ZobrazenieCpScreen();
+                ZobrazenieCpScreen scr = new ZobrazenieCpScreen(BUNDLE);
                 scr.setVisible(true);
             }
         });

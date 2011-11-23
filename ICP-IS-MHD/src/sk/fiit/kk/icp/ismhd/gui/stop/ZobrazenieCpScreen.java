@@ -23,7 +23,7 @@ import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
 
 public class ZobrazenieCpScreen extends JFrame {
-    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
+    private static ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
 
     private JPanel contentPane;
     private JLabel lbTitleLinkaCislo;
@@ -43,7 +43,7 @@ public class ZobrazenieCpScreen extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    ZobrazenieCpScreen frame = new ZobrazenieCpScreen();
+                    ZobrazenieCpScreen frame = new ZobrazenieCpScreen(BUNDLE);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -55,7 +55,8 @@ public class ZobrazenieCpScreen extends JFrame {
     /**
      * Create the frame.
      */
-    public ZobrazenieCpScreen() {
+    public ZobrazenieCpScreen(ResourceBundle rb) {
+        this.BUNDLE = rb;
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 640, 480);
@@ -99,7 +100,7 @@ public class ZobrazenieCpScreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 ZobrazenieCpScreen.this.dispose();
                 ZobrazenieCpScreen.this.setVisible(false);
-                VyhladanieCpScreen scr = new VyhladanieCpScreen();
+                VyhladanieCpScreen scr = new VyhladanieCpScreen(BUNDLE);
                 scr.setVisible(true);
             }
         });

@@ -56,7 +56,7 @@ public class NajdeneTrasyScreen extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    NajdeneTrasyScreen frame = new NajdeneTrasyScreen();
+                    NajdeneTrasyScreen frame = new NajdeneTrasyScreen(BUNDLE);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -68,7 +68,8 @@ public class NajdeneTrasyScreen extends JFrame {
     /**
      * Create the frame.
      */
-    public NajdeneTrasyScreen() {
+    public NajdeneTrasyScreen(ResourceBundle rb) {
+        this.BUNDLE = rb;
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 640, 480);
@@ -112,7 +113,7 @@ public class NajdeneTrasyScreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 NajdeneTrasyScreen.this.dispose();
                 NajdeneTrasyScreen.this.setVisible(false);
-                PodrobnostiTrasyScreen scr = new PodrobnostiTrasyScreen();
+                PodrobnostiTrasyScreen scr = new PodrobnostiTrasyScreen(BUNDLE);
                 scr.setVisible(true);
             }
         });
@@ -128,7 +129,7 @@ public class NajdeneTrasyScreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 NajdeneTrasyScreen.this.dispose();
                 NajdeneTrasyScreen.this.setVisible(false);
-                VyhladanieTrasyScreen scr = new VyhladanieTrasyScreen();
+                VyhladanieTrasyScreen scr = new VyhladanieTrasyScreen(BUNDLE);
                 scr.setVisible(true);
             }
         });

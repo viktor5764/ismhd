@@ -139,7 +139,7 @@ public class HlavnaPonukaScreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 HlavnaPonukaScreen.this.dispose();
                 HlavnaPonukaScreen.this.setVisible(false);
-                VyhladanieCpScreen scr = new VyhladanieCpScreen();
+                VyhladanieCpScreen scr = new VyhladanieCpScreen(BUNDLE);
                 scr.setVisible(true);                
             }
         });
@@ -153,7 +153,7 @@ public class HlavnaPonukaScreen extends JFrame {
         bVyhladatSpojenie.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VyhladanieTrasyScreen frame = new VyhladanieTrasyScreen();
+                VyhladanieTrasyScreen frame = new VyhladanieTrasyScreen(BUNDLE);
                 frame.setVisible(true);
                 HlavnaPonukaScreen.this.dispose();
                 HlavnaPonukaScreen.this.setVisible(false);
@@ -171,7 +171,7 @@ public class HlavnaPonukaScreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 HlavnaPonukaScreen.this.dispose();
                 HlavnaPonukaScreen.this.setVisible(false);
-                MapaScreen scr = new MapaScreen();
+                MapaScreen scr = new MapaScreen(BUNDLE);
                 scr.setVisible(true);
             }
         });
@@ -187,7 +187,7 @@ public class HlavnaPonukaScreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 HlavnaPonukaScreen.this.dispose();
                 HlavnaPonukaScreen.this.setVisible(false);
-                PomocScreen scr = new PomocScreen();
+                PomocScreen scr = new PomocScreen(BUNDLE);
                 scr.setVisible(true);
             }
         });

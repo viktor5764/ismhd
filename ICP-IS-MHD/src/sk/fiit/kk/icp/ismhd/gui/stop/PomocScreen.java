@@ -48,7 +48,7 @@ public class PomocScreen extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    PomocScreen frame = new PomocScreen();
+                    PomocScreen frame = new PomocScreen(PomocScreen.BUNDLE);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -60,7 +60,8 @@ public class PomocScreen extends JFrame {
     /**
      * Create the frame.
      */
-    public PomocScreen() {
+    public PomocScreen(ResourceBundle rb) {
+        this.BUNDLE = rb;
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 640, 480);
@@ -142,4 +143,5 @@ public class PomocScreen extends JFrame {
         bSpat.setBounds(9, 399, 114, 42);
         contentPane.add(bSpat);
     }
+
 }
