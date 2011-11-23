@@ -23,8 +23,7 @@ import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
 
 public class MapaScreen extends JFrame {
-    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
-//comment
+    private static ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
     private JPanel contentPane;
     private JButton bSpat;
     private JButton bTelevzia;

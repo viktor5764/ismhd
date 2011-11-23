@@ -26,8 +26,7 @@ import javax.swing.table.TableCellRenderer;
 import java.util.ResourceBundle;
 
 public class HlavnaPonukaScreen extends JFrame {
-    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
-    //private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_EN"); //$NON-NLS-1$
+    private static ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
 
     private static final long serialVersionUID = -2332388519311531223L;
     private JPanel contentPane;
@@ -69,7 +68,29 @@ public class HlavnaPonukaScreen extends JFrame {
             }
         });
     }
+    
+    private void updateTextLabels() {
+        lbDatumDenTeplota.setText(BUNDLE.getString("HlavnaPonukaScreen.lbDatumDenTeplota.text")); //$NON-NLS-1$
+        bCestovnePoriadky.setText(BUNDLE.getString("HlavnaPonukaScreen.bCestovnePoriadky.text")); //$NON-NLS-1$
+        bVyhladatSpojenie.setText(BUNDLE.getString("HlavnaPonukaScreen.bVyhladatSpojenie.text")); //$NON-NLS-1$
+        bMapa.setText(BUNDLE.getString("HlavnaPonukaScreen.bMapa.text")); //$NON-NLS-1$
+        bPomoc.setText(BUNDLE.getString("HlavnaPonukaScreen.bPomoc.text")); //$NON-NLS-1$
+        lbLinka.setText(BUNDLE.getString("HlavnaPonukaScreen.lbLinka.text")); //$NON-NLS-1$
+        lbSmer.setText(BUNDLE.getString("HlavnaPonukaScreen.lbSmer.text")); //$NON-NLS-1$
+        lbCas.setText(BUNDLE.getString("HlavnaPonukaScreen.lbCas.text")); //$NON-NLS-1$
+        
+    }
+    
+    private void setBundle(String baseName){
+        HlavnaPonukaScreen.BUNDLE = ResourceBundle.getBundle(baseName);
+        updateTextLabels();
+    }
 
+    public HlavnaPonukaScreen(String bundleName){
+        this();
+        setBundle(bundleName);
+    }
+    
     /**
      * Create the frame.
      */
@@ -114,6 +135,7 @@ public class HlavnaPonukaScreen extends JFrame {
         
         bCestovnePoriadky = new JButton(BUNDLE.getString("HlavnaPonukaScreen.bCestovnePoriadky.text")); //$NON-NLS-1$
         bCestovnePoriadky.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 HlavnaPonukaScreen.this.dispose();
                 HlavnaPonukaScreen.this.setVisible(false);
@@ -129,6 +151,7 @@ public class HlavnaPonukaScreen extends JFrame {
         
         bVyhladatSpojenie = new JButton(BUNDLE.getString("HlavnaPonukaScreen.bVyhladatSpojenie.text")); //$NON-NLS-1$
         bVyhladatSpojenie.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 VyhladanieTrasyScreen frame = new VyhladanieTrasyScreen();
                 frame.setVisible(true);
@@ -144,6 +167,7 @@ public class HlavnaPonukaScreen extends JFrame {
         
         bMapa = new JButton(BUNDLE.getString("HlavnaPonukaScreen.bMapa.text")); //$NON-NLS-1$
         bMapa.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 HlavnaPonukaScreen.this.dispose();
                 HlavnaPonukaScreen.this.setVisible(false);
@@ -159,6 +183,7 @@ public class HlavnaPonukaScreen extends JFrame {
         
         bPomoc = new JButton(BUNDLE.getString("HlavnaPonukaScreen.bPomoc.text")); //$NON-NLS-1$
         bPomoc.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 HlavnaPonukaScreen.this.dispose();
                 HlavnaPonukaScreen.this.setVisible(false);
@@ -173,31 +198,62 @@ public class HlavnaPonukaScreen extends JFrame {
         contentPane.add(bPomoc);
         
         bSk = new JButton("");
+        bSk.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
+            }
+        });
         bSk.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_sk.GIF")));
         bSk.setBounds(135, 399, 97, 42);
         contentPane.add(bSk);
         
         bEn = new JButton("");
+        bEn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_EN"); //$NON-NLS-1$
+            }
+        });
         bEn.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_en.GIF")));
         bEn.setBounds(231, 399, 97, 42);
         contentPane.add(bEn);
         
         bDe = new JButton("");
+        bDe.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_DE"); //$NON-NLS-1$
+            }
+        });
         bDe.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_de.GIF")));
         bDe.setBounds(328, 399, 97, 42);
         contentPane.add(bDe);
         
         bEs = new JButton("");
+        bEs.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_ES"); //$NON-NLS-1$
+            }
+        });
         bEs.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_es.GIF")));
         bEs.setBounds(425, 399, 97, 42);
         contentPane.add(bEs);
         
         bFr = new JButton("");
+        bFr.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_FR"); //$NON-NLS-1$
+            }
+        });
         bFr.setIcon(new ImageIcon(HlavnaPonukaScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_fr.GIF")));
         bFr.setBounds(522, 399, 97, 42);
         contentPane.add(bFr);
         
         table = new JTable(){
+            @Override
             public void paint(Graphics g) {
                 super.paint(g);
                 paintEmptyRows(g);
@@ -226,6 +282,7 @@ public class HlavnaPonukaScreen extends JFrame {
              * JTable normally restricts its size to just what's needed by its
              * model.
              */
+            @Override
             public boolean getScrollableTracksViewportHeight() {
                 if (getParent() instanceof JViewport) {
                     JViewport parent = (JViewport) getParent();
@@ -244,6 +301,7 @@ public class HlavnaPonukaScreen extends JFrame {
             /**
              * Shades alternate rows in different colors.
              */
+            @Override
             public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
                 Component c = super.prepareRenderer(renderer, row, column);
                 if (isCellSelected(row, column) == false) {

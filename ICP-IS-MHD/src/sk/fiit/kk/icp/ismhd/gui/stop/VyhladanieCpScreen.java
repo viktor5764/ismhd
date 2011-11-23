@@ -27,7 +27,7 @@ import java.awt.event.ActionEvent;
 import java.util.ResourceBundle;
 
 public class VyhladanieCpScreen extends JFrame {
-    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
+    private static ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
 
     private JPanel contentPane;
     private JLabel lbTitleCestovnePoriadky;

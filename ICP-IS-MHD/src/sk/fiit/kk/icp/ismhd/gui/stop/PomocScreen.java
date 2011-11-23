@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
 import java.util.ResourceBundle;
 
 public class PomocScreen extends JFrame {
-    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
+    private static ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
 
     private JPanel contentPane;
     private JLabel lbTitlePomoc;

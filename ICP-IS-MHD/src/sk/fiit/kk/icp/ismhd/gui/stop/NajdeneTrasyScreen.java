@@ -28,7 +28,7 @@ import javax.swing.table.TableCellRenderer;
 import java.util.ResourceBundle;
 
 public class NajdeneTrasyScreen extends JFrame {
-    private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
+    private static ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
 
     private JPanel contentPane;
     private JLabel lbTitleNajdeneTrasy;
