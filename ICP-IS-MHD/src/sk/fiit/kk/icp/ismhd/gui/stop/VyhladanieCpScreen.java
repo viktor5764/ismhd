@@ -132,7 +132,7 @@ public class VyhladanieCpScreen extends JFrame {
         JComboBox comboBoxLinka = new JComboBox();
         comboBoxLinka.setBounds(223, 115, 237, 47);
         contentPane.add(comboBoxLinka);
-        comboBoxLinka.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "9", "10", "39", "119", "N31", "N34"}));
+        comboBoxLinka.setModel(new DefaultComboBoxModel(HlavnaPonukaScreen.ZOZNAM_LINIEK));
         comboBoxLinka.setFont(new Font("SansSerif", Font.PLAIN, 18));
         
         JComboBox comboBoxZoZastavky = new JComboBox();

@@ -373,4 +373,13 @@ public class HlavnaPonukaScreen extends JFrame {
         lbCas.setBounds(489, 96, 89, 24);
         contentPane.add(lbCas);
     }
+
+    public static final String[] ZOZNAM_ZASTAVOK = {
+      "asd",  
+    };
+    
+    public static final String[] ZOZNAM_LINIEK = {
+        "1", "2", "3", "4", "5", "11", "12", "13", "14", "15", "19", "30", "31", "32", "37", "38", "39", "46", "48", "51", "60", "80", "83", "84", "93", "131", "139", "202", "206", "208", "210", "N31", "N93", "N208",
+    };
+    
 }
