@@ -253,7 +253,7 @@ public class NajdeneTrasyScreen extends JFrame {
         lbOdchod = new JLabel(BUNDLE.getString("NajdeneTrasyScreen.lbOdchod.text")); //$NON-NLS-1$
         lbOdchod.setHorizontalAlignment(SwingConstants.CENTER);
         lbOdchod.setFont(new Font("Arial", Font.PLAIN, 22));
-        lbOdchod.setBounds(10, 121, 89, 24);
+        lbOdchod.setBounds(10, 121, 113, 24);
         contentPane.add(lbOdchod);
         
         lbDlzkaCesty = new JLabel(BUNDLE.getString("NajdeneTrasyScreen.lbDlzkaCesty.text")); //$NON-NLS-1$
@@ -277,7 +277,7 @@ public class NajdeneTrasyScreen extends JFrame {
         lbPrestupy = new JLabel(BUNDLE.getString("NajdeneTrasyScreen.lbPrestupy.text")); //$NON-NLS-1$
         lbPrestupy.setHorizontalAlignment(SwingConstants.CENTER);
         lbPrestupy.setFont(new Font("Arial", Font.PLAIN, 22));
-        lbPrestupy.setBounds(351, 121, 93, 24);
+        lbPrestupy.setBounds(345, 121, 128, 24);
         contentPane.add(lbPrestupy);
         
         lbOdkialKam = new JLabel("Zochova \u2192 \u017DST Nov\u00E9 Mesto");
