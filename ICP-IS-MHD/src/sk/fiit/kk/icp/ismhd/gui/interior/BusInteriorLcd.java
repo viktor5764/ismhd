@@ -95,7 +95,7 @@ public class BusInteriorLcd extends JFrame {
         label.setBackground(new Color(0, 0, 128));
         label.setOpaque(true);
         label.setHorizontalAlignment(SwingConstants.CENTER);
-        label.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+        label.setBorder(new LineBorder(new Color(0, 0, 128), 2));
         label.setFont(new Font("Arial", Font.PLAIN, 56));
         label.setBounds(489, 0, 145, 84);
         contentPane.add(label);
@@ -105,7 +105,7 @@ public class BusInteriorLcd extends JFrame {
         lbNewLabel.setBackground(new Color(0, 0, 128));
         lbNewLabel.setOpaque(true);
         lbNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        lbNewLabel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+        lbNewLabel.setBorder(new LineBorder(new Color(0, 0, 128), 2));
         lbNewLabel.setFont(new Font("Arial", Font.PLAIN, 90));
         lbNewLabel.setBounds(0, 0, 121, 84);
         contentPane.add(lbNewLabel);
@@ -137,7 +137,7 @@ public class BusInteriorLcd extends JFrame {
         lblParkKultry.setBounds(99, 161, 252, 34);
         contentPane.add(lblParkKultry);
         
-        lblParkKultry_1 = new JLabel("Lafranconi   5");
+        lblParkKultry_1 = new JLabel("Lafranconi   7");
         lblParkKultry_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
         lblParkKultry_1.setOpaque(true);
         lblParkKultry_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -172,8 +172,8 @@ public class BusInteriorLcd extends JFrame {
         
         label_1 = new JLabel("");
         label_1.setFont(new Font("Dialog", Font.BOLD, 50));
-        label_1.setIcon(new ImageIcon(BusInteriorLcd.class.getResource("/sk/fiit/kucsera_kovalcik/icp/ismhd/arrow.png")));
-        label_1.setBounds(-6, -28, 628, 481);
+        label_1.setIcon(new ImageIcon(BusInteriorLcd.class.getResource("/sk/fiit/kk/icp/ismhd/arrow.png")));
+        label_1.setBounds(92, 80, 628, 481);
         contentPane.add(label_1);
     }
 }

@@ -24,6 +24,9 @@ import javax.swing.JRadioButton;
 import javax.swing.border.TitledBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class VyhladanieCpScreen extends JFrame {
@@ -37,6 +40,10 @@ public class VyhladanieCpScreen extends JFrame {
     private JButton bVyhladat;
     private JButton bSpat;
     private TitledBorder tbDestBorder;
+
+    private JComboBox comboBoxLinka;
+
+    private JComboBox comboBoxZoZastavky;
 
     /**
      * Launch the application.
@@ -129,18 +136,28 @@ public class VyhladanieCpScreen extends JFrame {
         bSpat.setBounds(9, 399, 114, 49);
         contentPane.add(bSpat);
         
-        JComboBox comboBoxLinka = new JComboBox();
+        comboBoxLinka = new JComboBox();
         comboBoxLinka.setBounds(223, 115, 237, 47);
         contentPane.add(comboBoxLinka);
-        comboBoxLinka.setModel(new DefaultComboBoxModel(HlavnaPonukaScreen.ZOZNAM_LINIEK));
+        comboBoxLinka.setModel(new DefaultComboBoxModel(HlavnaPonukaScreen.ZOZNAM_LINIEK));//new String[] {"1", "2", "3", "4", "5", "11", "12", "13", "14", "15", "19", "30", "31", "32", "37", "38", "39", "46", "48", "51", "60", "80", "83", "84", "93", "131", "139", "202", "206", "208", "210", "N31", "N93", "N208"}));
         comboBoxLinka.setFont(new Font("SansSerif", Font.PLAIN, 18));
+        comboBoxLinka.addItemListener(new ItemListener() {
+            
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() != ItemEvent.SELECTED)
+                    return;
+                VyhladanieCpScreen.this.fillZastavkyComboBox((String)comboBoxLinka.getSelectedItem());
+                
+            }
+        });
         
-        JComboBox comboBoxZoZastavky = new JComboBox();
+        comboBoxZoZastavky = new JComboBox();
         comboBoxZoZastavky.setBounds(223, 328, 237, 47);
         contentPane.add(comboBoxZoZastavky);
         comboBoxZoZastavky.setFont(new Font("SansSerif", Font.PLAIN, 18));
-        comboBoxZoZastavky.setModel(new DefaultComboBoxModel(new String[] {"Ag\u00E1tov\u00E1", "Alexyho", "Astronomick\u00E1", "Aupark", "Autobusov\u00E1 stanica", "Avion", "Bajkalsk\u00E1", "Botanick\u00E1 z\u00E1hrada", "Chatam S\u00F3fer", "Cintor\u00EDn Sl\u00E1v. \u00FAdolie", "\u010Cunovo", "Gagarinova", "Kop\u010Dany", "Lafranconi", "Ra\u010Dianske m\u00FDto", "SAV", "S\u00FAhvezdn\u00E1", "\u0160pit\u00E1lska", "Telev\u00EDzia", "Trnavsk\u00E9 m\u00FDto", "Vazovova", "Zochova", "\u017DST Nov\u00E9 Mesto"}));
-        comboBoxZoZastavky.setSelectedIndex(21);
+        comboBoxZoZastavky.setModel(new DefaultComboBoxModel(HlavnaPonukaScreen.ZOZNAM_ZASTAVOK));//new String[] {"Ag\u00E1tov\u00E1", "Alexyho", "Astronomick\u00E1", "Aupark", "Autobusov\u00E1 stanica", "Avion", "Bajkalsk\u00E1", "Botanick\u00E1 z\u00E1hrada", "Chatam S\u00F3fer", "Cintor\u00EDn Sl\u00E1v. \u00FAdolie", "\u010Cunovo", "Gagarinova", "Kop\u010Dany", "Lafranconi", "Ra\u010Dianske m\u00FDto", "SAV", "S\u00FAhvezdn\u00E1", "\u0160pit\u00E1lska", "Telev\u00EDzia", "Trnavsk\u00E9 m\u00FDto", "Vazovova", "Zochova", "\u017DST Nov\u00E9 Mesto"}));
+        comboBoxZoZastavky.setSelectedIndex(0);
         
         lbLinka = new JLabel(BUNDLE.getString("VyhladanieCpScreen.lbLinka.text")); //$NON-NLS-1$
         lbLinka.setHorizontalAlignment(SwingConstants.LEFT);
@@ -172,4 +189,11 @@ public class VyhladanieCpScreen extends JFrame {
         lbZoZastavky.setBounds(222, 295, 208, 26);
         contentPane.add(lbZoZastavky);
     }
+
+    private void fillZastavkyComboBox(String linkaName) {
+            int hash = linkaName.hashCode();
+            Random rand = new Random(hash);
+            int pocetZastavok = rand.nextInt(HlavnaPonukaScreen.ZOZNAM_ZASTAVOK.length);
+            
+    };
 }
