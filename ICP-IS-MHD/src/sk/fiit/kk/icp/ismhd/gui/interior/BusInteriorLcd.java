@@ -110,34 +110,34 @@ public class BusInteriorLcd extends JFrame {
         lbNewLabel.setBounds(0, 0, 121, 84);
         contentPane.add(lbNewLabel);
         
-        lblChatamSfer = new JLabel("Chatam S\u00F3fer   3");
+        lblChatamSfer = new JLabel("Chatam Sófer   3 min");
         lblChatamSfer.setBackground(Color.WHITE);
         lblChatamSfer.setHorizontalAlignment(SwingConstants.CENTER);
         lblChatamSfer.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
         lblChatamSfer.setForeground(new Color(0, 153, 0));
         lblChatamSfer.setOpaque(true);
         lblChatamSfer.setFont(new Font("Dialog", Font.BOLD, 50));
-        lblChatamSfer.setBounds(12, 243, 428, 64);
+        lblChatamSfer.setBounds(12, 243, 545, 64);
         contentPane.add(lblChatamSfer);
         
-        lblZochova = new JLabel("Zochova   -1");
+        lblZochova = new JLabel("Zochova   -1 min");
         lblZochova.setForeground(new Color(255, 0, 0));
         lblZochova.setHorizontalAlignment(SwingConstants.CENTER);
         lblZochova.setFont(new Font("Dialog", Font.BOLD, 30));
         lblZochova.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
         lblZochova.setOpaque(true);
-        lblZochova.setBounds(109, 360, 252, 34);
+        lblZochova.setBounds(109, 360, 269, 34);
         contentPane.add(lblZochova);
         
-        lblParkKultry = new JLabel("Park kult\u00FAry   4");
+        lblParkKultry = new JLabel("Park kultúry   4 min");
         lblParkKultry.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
         lblParkKultry.setOpaque(true);
         lblParkKultry.setHorizontalAlignment(SwingConstants.CENTER);
         lblParkKultry.setFont(new Font("Dialog", Font.BOLD, 30));
-        lblParkKultry.setBounds(99, 161, 252, 34);
+        lblParkKultry.setBounds(99, 161, 312, 34);
         contentPane.add(lblParkKultry);
         
-        lblParkKultry_1 = new JLabel("Lafranconi   5");
+        lblParkKultry_1 = new JLabel("Lafranconi   5 min");
         lblParkKultry_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
         lblParkKultry_1.setOpaque(true);
         lblParkKultry_1.setHorizontalAlignment(SwingConstants.CENTER);
