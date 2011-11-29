@@ -279,12 +279,12 @@ public class VyhladanieTrasyScreen extends JFrame {
         pOdchodPrichod.setBackground(new Color(255, 235, 205));
         
         JRadioButton rdbtnOdchod = new JRadioButton(BUNDLE.getString("VyhladanieTrasyScreen.rdbtnOdchod.text")); //$NON-NLS-1$
-        rdbtnOdchod.setBounds(184, 9, 115, 18);
+        rdbtnOdchod.setBounds(157, 9, 147, 18);
         pOdchodPrichod.add(rdbtnOdchod);
         rdbtnOdchod.setFont(new Font("Arial", Font.PLAIN, 22));
         
         JRadioButton rdbtnPrichod = new JRadioButton(BUNDLE.getString("VyhladanieTrasyScreen.rdbtnPrichod.text")); //$NON-NLS-1$
-        rdbtnPrichod.setBounds(329, 9, 115, 18);
+        rdbtnPrichod.setBounds(349, 9, 147, 18);
         pOdchodPrichod.add(rdbtnPrichod);
         rdbtnPrichod.setFont(new Font("Arial", Font.PLAIN, 22));
     }
