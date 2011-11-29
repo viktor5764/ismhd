@@ -82,9 +82,9 @@ public class BusInteriorLcd extends JFrame {
         lbZochova.setOpaque(true);
         lbZochova.setHorizontalAlignment(SwingConstants.CENTER);
         lbZochova.setHorizontalTextPosition(SwingConstants.CENTER);
-        lbZochova.setForeground(Color.BLUE);
+        lbZochova.setForeground(new Color(0, 0, 128));
         lbZochova.setFont(new Font("Arial", Font.BOLD, 40));
-        lbZochova.setBorder(new LineBorder(Color.BLUE, 2));
+        lbZochova.setBorder(new LineBorder(new Color(0, 0, 128), 2));
         lbZochova.setBackground(Color.WHITE);
         lbZochova.setAlignmentX(Component.CENTER_ALIGNMENT);
         lbZochova.setBounds(119, 0, 373, 84);
@@ -92,7 +92,7 @@ public class BusInteriorLcd extends JFrame {
         
         label = new JLabel("13:42");
         label.setForeground(new Color(255, 255, 255));
-        label.setBackground(new Color(0, 0, 255));
+        label.setBackground(new Color(0, 0, 128));
         label.setOpaque(true);
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setBorder(new LineBorder(new Color(0, 0, 0), 2));
@@ -102,7 +102,7 @@ public class BusInteriorLcd extends JFrame {
         
         lbNewLabel = new JLabel("31");
         lbNewLabel.setForeground(new Color(255, 255, 255));
-        lbNewLabel.setBackground(new Color(0, 0, 255));
+        lbNewLabel.setBackground(new Color(0, 0, 128));
         lbNewLabel.setOpaque(true);
         lbNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         lbNewLabel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
@@ -146,8 +146,8 @@ public class BusInteriorLcd extends JFrame {
         contentPane.add(lblParkKultry_1);
         
         panel_1 = new JPanel();
-        panel_1.setBackground(Color.BLUE);
-        panel_1.setBorder(new LineBorder(Color.BLUE, 2));
+        panel_1.setBackground(new Color(0, 0, 128));
+        panel_1.setBorder(new LineBorder(new Color(0, 0, 128), 2));
         panel_1.setBounds(0, 420, 633, 33);
         contentPane.add(panel_1);
         panel_1.setLayout(new GridLayout(0, 3, 0, 0));
@@ -165,15 +165,15 @@ public class BusInteriorLcd extends JFrame {
         lbNewLabel_1.setFont(new Font("SansSerif", Font.PLAIN, 22));
         
         lbNewLabel_2 = new JLabel("22 \u00B0C");
+        panel_1.add(lbNewLabel_2);
         lbNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
         lbNewLabel_2.setForeground(Color.WHITE);
         lbNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
-        panel_1.add(lbNewLabel_2);
         
         label_1 = new JLabel("");
         label_1.setFont(new Font("Dialog", Font.BOLD, 50));
         label_1.setIcon(new ImageIcon(BusInteriorLcd.class.getResource("/sk/fiit/kucsera_kovalcik/icp/ismhd/arrow.png")));
-        label_1.setBounds(40, 78, 628, 481);
+        label_1.setBounds(-6, -28, 628, 481);
         contentPane.add(label_1);
     }
 }
