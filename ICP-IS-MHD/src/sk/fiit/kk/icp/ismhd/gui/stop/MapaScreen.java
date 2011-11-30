@@ -18,6 +18,7 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+
 public class MapaScreen extends JFrame {
     private static ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
     private JPanel contentPane;
@@ -31,6 +32,10 @@ public class MapaScreen extends JFrame {
     private JButton bHorskPark;
     private JButton bBdkov;
     private JButton bPrvosienkov;
+    private JButton btnL;
+    private JButton btnUp;
+    private JButton btnx;
+    private JButton btnx_1;
 
     /**
      * Launch the application.
@@ -159,7 +164,36 @@ public class MapaScreen extends JFrame {
         bPrvosienkov.setBounds(354, 125, 101, 25);
         contentPane.add(bPrvosienkov);
         
+        btnL = new JButton("<html>&#x2190</html>");
+        btnL.setFont(new Font("DejaVu Sans", Font.BOLD, 20));
+        btnL.setBorder(new LineBorder(new Color(0, 0, 0), 0, true));
+        btnL.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        	}
+        });
+        btnL.setBounds(534, 376, 30, 30);
+        contentPane.add(btnL);
+        
+        btnUp = new JButton("<html>&#x2191</html>");
+        btnUp.setBorder(new LineBorder(new Color(0, 0, 0), 0));
+        btnUp.setFont(new Font("DejaVu Sans", Font.BOLD, 20));
+        btnUp.setBounds(563, 347, 30, 30);
+        contentPane.add(btnUp);
+        
+        btnx = new JButton("<html>&#x2193</html>");
+        btnx.setBorder(new LineBorder(new Color(0, 0, 0), 0));
+        btnx.setFont(new Font("DejaVu Sans", Font.BOLD, 20));
+        btnx.setBounds(563, 404, 30, 30);
+        contentPane.add(btnx);
+        
+        btnx_1 = new JButton("<html>&#x2192</html>");
+        btnx_1.setBorder(new LineBorder(new Color(0, 0, 0), 0));
+        btnx_1.setFont(new Font("DejaVu Sans", Font.BOLD, 20));
+        btnx_1.setBounds(591, 376, 30, 30);
+        contentPane.add(btnx_1);
+        
         JLabel lblNewLabel = new JLabel("");
+        lblNewLabel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
         lblNewLabel.setOpaque(true);
         lblNewLabel.setIcon(new ImageIcon(MapaScreen.class.getResource("/sk/fiit/kk/icp/ismhd/map.GIF")));
         lblNewLabel.setBounds(6, 6, 628, 441);
