@@ -118,10 +118,10 @@ public class VyhladanieCpScreen extends JFrame {
         bVyhladat = new JButton(BUNDLE.getString("VyhladanieCpScreen.bVyhladat.text")); //$NON-NLS-1$
         bVyhladat.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                VyhladanieCpScreen.this.dispose();
-                VyhladanieCpScreen.this.setVisible(false);
                 ZobrazenieCpScreen scr = new ZobrazenieCpScreen(BUNDLE, comboBoxLinka.getSelectedItem().toString(), comboBoxLinka.getSelectedItem().hashCode() + comboBoxZoZastavky.getSelectedItem().hashCode() + new Boolean(rdbtnSmer1.isSelected()).hashCode());
                 scr.setVisible(true);
+                VyhladanieCpScreen.this.dispose();
+                VyhladanieCpScreen.this.setVisible(false);
             }
         });
         bVyhladat.setFont(new Font("Arial", Font.BOLD, 17));
@@ -131,10 +131,10 @@ public class VyhladanieCpScreen extends JFrame {
         bSpat = new JButton(BUNDLE.getString("VyhladanieCpScreen.bSpat.text")); //$NON-NLS-1$
         bSpat.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                VyhladanieCpScreen.this.dispose();
-                VyhladanieCpScreen.this.setVisible(false);
                 HlavnaPonukaScreen scr = new HlavnaPonukaScreen();
                 scr.setVisible(true);
+                VyhladanieCpScreen.this.dispose();
+                VyhladanieCpScreen.this.setVisible(false);
             }
         });
         bSpat.setFont(new Font("Arial", Font.BOLD, 17));
@@ -223,7 +223,7 @@ public class VyhladanieCpScreen extends JFrame {
             zastavky.set(i, tmp);
         }
         
-        comboBoxZoZastavky.setModel(new DefaultComboBoxModel<String>(zastavky.subList(0, pocetZastavok).toArray(new String[]{})));
+        comboBoxZoZastavky.setModel(new DefaultComboBoxModel(zastavky.subList(0, pocetZastavok).toArray(new String[]{})));
         rdbtnSmer1.setText((String)comboBoxZoZastavky.getItemAt(0));
         rdbtnSmer2.setText((String)comboBoxZoZastavky.getItemAt(pocetZastavok - 1));
     };

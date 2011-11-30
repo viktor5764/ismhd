@@ -58,7 +58,7 @@ public class NajdeneTrasyScreen extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    NajdeneTrasyScreen frame = new NajdeneTrasyScreen(BUNDLE);
+                    NajdeneTrasyScreen frame = new NajdeneTrasyScreen(BUNDLE, null, null, 0);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -70,7 +70,7 @@ public class NajdeneTrasyScreen extends JFrame {
     /**
      * Create the frame.
      */
-    public NajdeneTrasyScreen(ResourceBundle rb) {
+    public NajdeneTrasyScreen(ResourceBundle rb, final String odkial, final String kam, final int hash) {
         this.BUNDLE = rb;
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -113,10 +113,10 @@ public class NajdeneTrasyScreen extends JFrame {
         bPodrobnosti = new JButton(BUNDLE.getString("NajdeneTrasyScreen.bPodrobnosti.text")); //$NON-NLS-1$
         bPodrobnosti.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                PodrobnostiTrasyScreen scr = new PodrobnostiTrasyScreen(BUNDLE, odkial, kam, hash);
+                scr.setVisible(true);
                 NajdeneTrasyScreen.this.dispose();
                 NajdeneTrasyScreen.this.setVisible(false);
-                PodrobnostiTrasyScreen scr = new PodrobnostiTrasyScreen(BUNDLE);
-                scr.setVisible(true);
             }
         });
         bPodrobnosti.setEnabled(false);
@@ -129,10 +129,10 @@ public class NajdeneTrasyScreen extends JFrame {
         bSpat = new JButton(BUNDLE.getString("NajdeneTrasyScreen.bSpat.text")); //$NON-NLS-1$
         bSpat.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                NajdeneTrasyScreen.this.dispose();
-                NajdeneTrasyScreen.this.setVisible(false);
                 VyhladanieTrasyScreen scr = new VyhladanieTrasyScreen(BUNDLE);
                 scr.setVisible(true);
+                NajdeneTrasyScreen.this.dispose();
+                NajdeneTrasyScreen.this.setVisible(false);
             }
         });
         bSpat.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -282,7 +282,7 @@ public class NajdeneTrasyScreen extends JFrame {
         lbPrestupy.setBounds(345, 121, 128, 24);
         contentPane.add(lbPrestupy);
         
-        lbOdkialKam = new JLabel("Zochova \u2192 \u017DST Nov\u00E9 Mesto");
+        lbOdkialKam = new JLabel(odkial + " \u2192 " + kam);
         lbOdkialKam.setForeground(Color.BLUE);
         lbOdkialKam.setFont(new Font("Arial", Font.BOLD, 27));
         lbOdkialKam.setHorizontalTextPosition(SwingConstants.CENTER);

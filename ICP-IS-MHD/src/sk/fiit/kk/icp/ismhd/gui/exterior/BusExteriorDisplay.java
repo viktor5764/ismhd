@@ -5,11 +5,14 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
@@ -17,13 +20,19 @@ public class BusExteriorDisplay extends JFrame {
 
     private JPanel contentPane;
 
+    private Timer timer;
+    
+    private static final String[] ROUTE = {
+        "Ra\u010Dianske m\u00FDto", "Povrazn\u00EDcka", "STU", "N\u00E1m. 1. m\u00E1ja", "Zochova", "Chatam S\u00F3fer", "Park kult\u00FAry", "Lafranconi", "Zoo", "Telev\u00EDzia",
+    };
+
     /**
      * Launch the application.
      */
     
     public static void main(String[] args) {
         try {
-            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
         } catch (Throwable e) {
             e.printStackTrace();
         }
@@ -71,7 +80,7 @@ public class BusExteriorDisplay extends JFrame {
         lblCintornSlviiedolie.setBounds(116, 0, 515, 49);
         contentPane.add(lblCintornSlviiedolie);
         
-        JLabel lblParkKultry = new JLabel("Park kult\u00FAry");
+        final JLabel lblParkKultry = new JLabel("Park kult\u00FAry");
         lblParkKultry.setHorizontalAlignment(SwingConstants.CENTER);
         lblParkKultry.setForeground(Color.RED);
         lblParkKultry.setFont(new Font("Dialog", Font.PLAIN, 30));
@@ -84,5 +93,19 @@ public class BusExteriorDisplay extends JFrame {
         int x = (screen.width - window.width) / 2;
         int y = (screen.height - window.height) / 2;
         this.setLocation(x, y);
+        
+        timer = new Timer(2500, new ActionListener() {
+            
+            private int i;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                i = (i + 1) % ROUTE.length;
+                lblParkKultry.setText(ROUTE[i]);
+                
+            }
+        });
+        timer.setInitialDelay(2000);
+        timer.start(); 
     }
 }

@@ -97,10 +97,10 @@ public class ZobrazenieCpScreen extends JFrame {
         bSpat = new JButton(BUNDLE.getString("ZobrazenieCpScreen.bSpat.text")); //$NON-NLS-1$
         bSpat.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ZobrazenieCpScreen.this.dispose();
-                ZobrazenieCpScreen.this.setVisible(false);
                 VyhladanieCpScreen scr = new VyhladanieCpScreen(BUNDLE);
                 scr.setVisible(true);
+                ZobrazenieCpScreen.this.dispose();
+                ZobrazenieCpScreen.this.setVisible(false);
             }
         });
         bSpat.setFont(new Font("Arial", Font.BOLD, 17));

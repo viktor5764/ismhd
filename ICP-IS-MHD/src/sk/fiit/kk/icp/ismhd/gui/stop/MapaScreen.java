@@ -7,13 +7,20 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ResourceBundle;
 
+import javax.swing.AbstractAction;
+import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
@@ -36,6 +43,15 @@ public class MapaScreen extends JFrame {
     private JButton btnUp;
     private JButton btnx;
     private JButton btnx_1;
+    private JPanel panel;
+    private JPanel panel_1;
+    private JPopupMenu popup;
+    private MouseListener popupMouseListener;
+    private String zastavka;
+    private JButton btnCintornSlviiedolie;
+    private JButton btnLafranconi;
+    private JButton btnZoo;
+    private JButton bervenKr;
 
     /**
      * Launch the application.
@@ -74,12 +90,13 @@ public class MapaScreen extends JFrame {
         contentPane.setLayout(null);
         
         bSpat = new JButton(BUNDLE.getString("MapaScreen.bSpat.text")); //$NON-NLS-1$
+        bSpat.setName(bSpat.getText());
         bSpat.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                MapaScreen.this.dispose();
-                MapaScreen.this.setVisible(false);
                 HlavnaPonukaScreen scr = new HlavnaPonukaScreen();
                 scr.setVisible(true);
+                MapaScreen.this.dispose();
+                MapaScreen.this.setVisible(false);
             }
         });
         bSpat.setBorder(new LineBorder(new Color(0, 0, 255), 2, true));
@@ -87,7 +104,8 @@ public class MapaScreen extends JFrame {
         bSpat.setBounds(9, 399, 114, 49);
         contentPane.add(bSpat);
         
-        JButton btnZoo = new JButton("ZOO");
+        btnZoo = new JButton("ZOO");
+        btnZoo.setName(btnZoo.getText());
         btnZoo.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         	}
@@ -96,12 +114,14 @@ public class MapaScreen extends JFrame {
         btnZoo.setBounds(277, 179, 62, 25);
         contentPane.add(btnZoo);
         
-        JButton btnLafranconi = new JButton("Lafranconi");
+        btnLafranconi = new JButton("Lafranconi");
+        btnLafranconi.setName(btnLafranconi.getText());
         btnLafranconi.setBackground(Color.ORANGE);
-        btnLafranconi.setBounds(392, 409, 105, 25);
+        btnLafranconi.setBounds(390, 411, 105, 25);
         contentPane.add(btnLafranconi);
         
-        JButton bervenKr = new JButton("\u010Cerven\u00FD kr\u00ED\u017E");
+        bervenKr = new JButton("\u010Cerven\u00FD kr\u00ED\u017E");
+        bervenKr.setName(bervenKr.getText());
         bervenKr.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         	}
@@ -110,94 +130,168 @@ public class MapaScreen extends JFrame {
         bervenKr.setBounds(471, 288, 122, 25);
         contentPane.add(bervenKr);
         
-        JButton btnCintornSlviiedolie = new JButton("<html>\r\n<center>    \r\nCintor\u00EDn<br>\r\nSl\u00E1vi\u010Die \u00FAdolie\r\n</center>\r\n</html>");
+        btnCintornSlviiedolie = new JButton("<html>\r\n<center>    \r\nCintor\u00EDn<br>\r\nSl\u00E1vi\u010Die \u00FAdolie\r\n</center>\r\n</html>");
+        btnCintornSlviiedolie.setName("Cintor\u00EDn Sl\u00E1v. \u00FAdolie");
         btnCintornSlviiedolie.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         	}
         });
         btnCintornSlviiedolie.setBackground(Color.ORANGE);
-        btnCintornSlviiedolie.setBounds(199, 33, 122, 42);
+        btnCintornSlviiedolie.setBounds(192, 34, 122, 42);
         contentPane.add(btnCintornSlviiedolie);
         
         bTelevzia = new JButton("Telev\u00EDzia");
+        bTelevzia.setName(bTelevzia.getText());
         bTelevzia.setBackground(Color.ORANGE);
-        bTelevzia.setBounds(183, 131, 84, 25);
+        bTelevzia.setBounds(176, 133, 84, 25);
         contentPane.add(bTelevzia);
         
         bGrunty = new JButton("Grunty");
+        bGrunty.setName(bGrunty.getText());
         bGrunty.setBackground(Color.ORANGE);
-        bGrunty.setBounds(175, 179, 68, 25);
+        bGrunty.setBounds(169, 183, 68, 25);
         contentPane.add(bGrunty);
         
         bBotanickZhrada = new JButton("Botanick\u00E1 z\u00E1hrada");
+        bBotanickZhrada.setName(bBotanickZhrada.getText());
         bBotanickZhrada.setBackground(Color.ORANGE);
-        bBotanickZhrada.setBounds(186, 318, 135, 27);
+        bBotanickZhrada.setBounds(172, 319, 135, 27);
         contentPane.add(bBotanickZhrada);
         
         bMolecova = new JButton("Molecova");
+        bMolecova.setName(bMolecova.getText());
         bMolecova.setBackground(Color.ORANGE);
-        bMolecova.setBounds(37, 310, 81, 36);
+        bMolecova.setBounds(33, 311, 81, 36);
         contentPane.add(bMolecova);
         
         bPanorma = new JButton("Panor\u00E1ma");
+        bPanorma.setName(bPanorma.getText());
         bPanorma.setBackground(Color.ORANGE);
-        bPanorma.setBounds(183, 249, 90, 25);
+        bPanorma.setBounds(178, 251, 90, 25);
         contentPane.add(bPanorma);
         
         bNadInterntmi = new JButton("Nad intern\u00E1tmi");
+        bNadInterntmi.setName(bNadInterntmi.getText());
         bNadInterntmi.setBackground(Color.ORANGE);
-        bNadInterntmi.setBounds(30, 72, 114, 27);
+        bNadInterntmi.setBounds(25, 77, 114, 27);
         contentPane.add(bNadInterntmi);
         
         bHorskPark = new JButton("<html>\r\n<center>    \r\nHorsk\u00FD<br>\r\npark\r\n</center>\r\n</html>");
+        bHorskPark.setName("Horsk\u00FD park");
         bHorskPark.setBackground(Color.ORANGE);
-        bHorskPark.setBounds(498, 126, 69, 42);
+        bHorskPark.setBounds(492, 121, 69, 42);
         contentPane.add(bHorskPark);
         
         bBdkov = new JButton("B\u00FAdkov\u00E1");
+        bBdkov.setName(bBdkov.getText());
         bBdkov.setBackground(Color.ORANGE);
-        bBdkov.setBounds(540, 223, 81, 36);
+        bBdkov.setBounds(532, 225, 81, 36);
         contentPane.add(bBdkov);
         
         bPrvosienkov = new JButton("Prvosienkov\u00E1");
+        bPrvosienkov.setName(bPrvosienkov.getText());
         bPrvosienkov.setBackground(Color.ORANGE);
-        bPrvosienkov.setBounds(354, 125, 101, 25);
+        bPrvosienkov.setBounds(351, 132, 101, 25);
         contentPane.add(bPrvosienkov);
         
+        panel = new JPanel();
+        panel.setBorder(new LineBorder(Color.BLUE, 2));
+        panel.setBounds(542, 362, 90, 90);
+        contentPane.add(panel);
+        panel.setLayout(null);
+        
         btnL = new JButton("<html>&#x2190</html>");
+        btnL.setBounds(0, 30, 30, 30);
+        panel.add(btnL);
         btnL.setFont(new Font("DejaVu Sans", Font.BOLD, 20));
-        btnL.setBorder(new LineBorder(new Color(0, 0, 0), 0, true));
+        btnL.setBorder(null);
+        
+        btnUp = new JButton("<html>&#x2191</html>");
+        btnUp.setBounds(30, 0, 30, 30);
+        panel.add(btnUp);
+        btnUp.setBorder(null);
+        btnUp.setFont(new Font("DejaVu Sans", Font.BOLD, 20));
+        
+        btnx = new JButton("<html>&#x2193</html>");
+        btnx.setBounds(30, 60, 30, 30);
+        panel.add(btnx);
+        btnx.setBorder(null);
+        btnx.setFont(new Font("DejaVu Sans", Font.BOLD, 20));
+        
+        btnx_1 = new JButton("<html>&#x2192</html>");
+        btnx_1.setBounds(60, 30, 30, 30);
+        panel.add(btnx_1);
+        btnx_1.setBorder(null);
+        btnx_1.setFont(new Font("DejaVu Sans", Font.BOLD, 20));
         btnL.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         	}
         });
-        btnL.setBounds(534, 376, 30, 30);
-        contentPane.add(btnL);
-        
-        btnUp = new JButton("<html>&#x2191</html>");
-        btnUp.setBorder(new LineBorder(new Color(0, 0, 0), 0));
-        btnUp.setFont(new Font("DejaVu Sans", Font.BOLD, 20));
-        btnUp.setBounds(563, 347, 30, 30);
-        contentPane.add(btnUp);
-        
-        btnx = new JButton("<html>&#x2193</html>");
-        btnx.setBorder(new LineBorder(new Color(0, 0, 0), 0));
-        btnx.setFont(new Font("DejaVu Sans", Font.BOLD, 20));
-        btnx.setBounds(563, 404, 30, 30);
-        contentPane.add(btnx);
-        
-        btnx_1 = new JButton("<html>&#x2192</html>");
-        btnx_1.setBorder(new LineBorder(new Color(0, 0, 0), 0));
-        btnx_1.setFont(new Font("DejaVu Sans", Font.BOLD, 20));
-        btnx_1.setBounds(591, 376, 30, 30);
-        contentPane.add(btnx_1);
         
         JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
         lblNewLabel.setOpaque(true);
         lblNewLabel.setIcon(new ImageIcon(MapaScreen.class.getResource("/sk/fiit/kk/icp/ismhd/map.GIF")));
-        lblNewLabel.setBounds(6, 6, 628, 441);
+        lblNewLabel.setBounds(0, 0, 634, 454);
         contentPane.add(lblNewLabel);
+        
+        panel_1 = new JPanel();
+        panel_1.setBounds(0, 0, 10, 10);
+        contentPane.add(panel_1);
+        
+        popup = new JPopupMenu();
+        popup.add(new JMenuItem(new AbstractAction("H\u013Eada\u0165 cestu sem...") {
+            public void actionPerformed(ActionEvent e) {
+                VyhladanieTrasyScreen frame = new VyhladanieTrasyScreen(BUNDLE, null, zastavka);
+                frame.setVisible(true);
+                MapaScreen.this.dispose();
+                MapaScreen.this.setVisible(false);
+            }
+        }));
+        popup.add(new JMenuItem(new AbstractAction("H\u013Eada\u0165 cestu odtia\u013Eto...") {
+            public void actionPerformed(ActionEvent e) {
+                VyhladanieTrasyScreen frame = new VyhladanieTrasyScreen(BUNDLE, zastavka, null);
+                frame.setVisible(true);
+                MapaScreen.this.dispose();
+                MapaScreen.this.setVisible(false);
+            }
+        }));
+        
+        popupMouseListener = new MouseListener() {
+            
+            @Override
+            public void mouseReleased(MouseEvent e) {}
+            
+            @Override
+            public void mousePressed(MouseEvent e) {}
+            
+            @Override
+            public void mouseExited(MouseEvent e) {}
+            
+            @Override
+            public void mouseEntered(MouseEvent e) {}
+            
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                zastavka = ((JButton)e.getComponent()).getName();
+                popup.show(e.getComponent(), e.getX(), e.getY());
+            }
+        };
+        
+        bBdkov.addMouseListener(popupMouseListener);
+        bervenKr.addMouseListener(popupMouseListener);
+        btnCintornSlviiedolie.addMouseListener(popupMouseListener);
+        btnLafranconi.addMouseListener(popupMouseListener);
+        btnZoo.addMouseListener(popupMouseListener);
+        bBotanickZhrada.addMouseListener(popupMouseListener);
+        bGrunty.addMouseListener(popupMouseListener);
+        bHorskPark.addMouseListener(popupMouseListener);
+        bMolecova.addMouseListener(popupMouseListener);
+        bNadInterntmi.addMouseListener(popupMouseListener);
+        bPanorma.addMouseListener(popupMouseListener);
+        bPrvosienkov.addMouseListener(popupMouseListener);
+        bTelevzia.addMouseListener(popupMouseListener);
+
         
      // vycentrovanie okna na stred obrazovky
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();

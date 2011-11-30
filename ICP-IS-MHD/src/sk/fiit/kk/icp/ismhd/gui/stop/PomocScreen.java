@@ -103,26 +103,56 @@ public class PomocScreen extends JFrame {
         bSk.setIcon(new ImageIcon(PomocScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_sk.GIF")));
         bSk.setBounds(135, 399, 97, 42);
         contentPane.add(bSk);
+        bSk.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
+            }
+        });
         
         bEn = new JButton("");
         bEn.setIcon(new ImageIcon(PomocScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_en.GIF")));
         bEn.setBounds(231, 399, 97, 42);
         contentPane.add(bEn);
+        bEn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_EN"); //$NON-NLS-1$
+            }
+        });
         
         bDe = new JButton("");
         bDe.setIcon(new ImageIcon(PomocScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_de.GIF")));
         bDe.setBounds(328, 399, 97, 42);
         contentPane.add(bDe);
+        bDe.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_DE"); //$NON-NLS-1$
+            }
+        });
         
         bEs = new JButton("");
         bEs.setIcon(new ImageIcon(PomocScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_es.GIF")));
         bEs.setBounds(425, 399, 97, 42);
         contentPane.add(bEs);
+        bEs.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_ES"); //$NON-NLS-1$
+            }
+        });
         
         bFr = new JButton("");
         bFr.setIcon(new ImageIcon(PomocScreen.class.getResource("/sk/fiit/kk/icp/ismhd/flag_fr.GIF")));
         bFr.setBounds(522, 399, 97, 42);
         contentPane.add(bFr);
+        bFr.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_FR"); //$NON-NLS-1$
+            }
+        });
         
         lblHelpText = new JLabel(BUNDLE.getString("PomocScreen.lblHelpText.text")); //$NON-NLS-1$
         lblHelpText.setFont(new Font("SansSerif", Font.PLAIN, 12));
@@ -132,10 +162,10 @@ public class PomocScreen extends JFrame {
         bSpat = new JButton(BUNDLE.getString("PomocScreen.bSpat.text")); //$NON-NLS-1$
         bSpat.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                PomocScreen.this.dispose();
-                PomocScreen.this.setVisible(false);
                 HlavnaPonukaScreen scr = new HlavnaPonukaScreen();
                 scr.setVisible(true);
+                PomocScreen.this.dispose();
+                PomocScreen.this.setVisible(false);
             }
         });
         bSpat.setFont(new Font("Arial", Font.BOLD, 17));
@@ -148,6 +178,13 @@ public class PomocScreen extends JFrame {
         int x = (screen.width - window.width) / 2;
         int y = (screen.height - window.height) / 2;
         this.setLocation(x, y);
+    }
+    
+    private void setBundle(String baseName) {
+        PomocScreen.BUNDLE = ResourceBundle.getBundle(baseName);
+        lbTitlePomoc.setText(BUNDLE.getString("PomocScreen.lbTitlePomoc.text")); //$NON-NLS-1$
+        lblHelpText.setText(BUNDLE.getString("PomocScreen.lblHelpText.text")); //$NON-NLS-1$
+        lbDatumDenTeplota.setText(BUNDLE.getString("PomocScreen.lbDatumDenTeplota.text")); //$NON-NLS-1$
     }
 
 }

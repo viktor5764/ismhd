@@ -160,10 +160,10 @@ public class HlavnaPonukaScreen extends JFrame {
         bCestovnePoriadky.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                HlavnaPonukaScreen.this.dispose();
-                HlavnaPonukaScreen.this.setVisible(false);
                 VyhladanieCpScreen scr = new VyhladanieCpScreen(BUNDLE);
                 scr.setVisible(true);
+                HlavnaPonukaScreen.this.dispose();
+                HlavnaPonukaScreen.this.setVisible(false);
             }
         });
         bCestovnePoriadky.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -193,10 +193,10 @@ public class HlavnaPonukaScreen extends JFrame {
         bMapa.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                HlavnaPonukaScreen.this.dispose();
-                HlavnaPonukaScreen.this.setVisible(false);
                 MapaScreen scr = new MapaScreen(BUNDLE);
                 scr.setVisible(true);
+                HlavnaPonukaScreen.this.dispose();
+                HlavnaPonukaScreen.this.setVisible(false);
             }
         });
         bMapa.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -209,10 +209,10 @@ public class HlavnaPonukaScreen extends JFrame {
         bPomoc.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                HlavnaPonukaScreen.this.dispose();
-                HlavnaPonukaScreen.this.setVisible(false);
                 PomocScreen scr = new PomocScreen(BUNDLE);
                 scr.setVisible(true);
+                HlavnaPonukaScreen.this.dispose();
+                HlavnaPonukaScreen.this.setVisible(false);
             }
         });
         bPomoc.setHorizontalTextPosition(SwingConstants.CENTER);

@@ -61,7 +61,7 @@ public class PodrobnostiTrasyScreen extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    PodrobnostiTrasyScreen frame = new PodrobnostiTrasyScreen(BUNDLE);
+                    PodrobnostiTrasyScreen frame = new PodrobnostiTrasyScreen(BUNDLE, null, null, 0);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -73,7 +73,7 @@ public class PodrobnostiTrasyScreen extends JFrame {
     /**
      * Create the frame.
      */
-    public PodrobnostiTrasyScreen(ResourceBundle rb) {
+    public PodrobnostiTrasyScreen(ResourceBundle rb, String odkial, String kam, int hash) {
         this.BUNDLE = rb;
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -116,10 +116,10 @@ public class PodrobnostiTrasyScreen extends JFrame {
         bSpat = new JButton(BUNDLE.getString("PodrobnostiTrasyScreen.bSpat.text")); //$NON-NLS-1$
         bSpat.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                HlavnaPonukaScreen scr = new HlavnaPonukaScreen();
+                scr.setVisible(true);
                 PodrobnostiTrasyScreen.this.dispose();
                 PodrobnostiTrasyScreen.this.setVisible(false);
-                VyhladanieTrasyScreen scr = new VyhladanieTrasyScreen(BUNDLE);
-                scr.setVisible(true);
             }
         });
         bSpat.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -211,14 +211,14 @@ public class PodrobnostiTrasyScreen extends JFrame {
         table.setModel(new DefaultTableModel(
             new Object[][] {
                 {"<html><b>linka 31</b></html>", "smer Ra\u010Dianske m\u00FDto"},
-                {null, "<html><b>14:00 - Zochova</b></html>"},
+                {null, "<html><b>14:00 - "+odkial+"</b></html>"},
                 {null, "   (3 zast\u00E1vky, 13 min)"},
                 {null, "<html><b>14:13 - Vazovova</b></html>"},
                 {null, null},
                 {"<html><b>linka 50</b></html>", "smer Nov\u00E9 Mesto"},
                 {null, "<html><b>14:14 - Vazovova</b></html>"},
                 {null, "   (6 zast\u00E1vok, 15 min)"},
-                {null, "<html><b>14:29 - \u017DST Nov\u00E9 Mesto</b></html>"},
+                {null, "<html><b>14:29 - "+kam+"</b></html>"},
             },
             new String[] {
                 "New column", "New column"
@@ -229,7 +229,7 @@ public class PodrobnostiTrasyScreen extends JFrame {
         table.setBounds(295, 144, 332, 243);
         contentPane.add(table);
         
-        lbOdkialKam = new JLabel("Zochova \u2192 \u017DST Nov\u00E9 Mesto");
+        lbOdkialKam = new JLabel(odkial + " \u2192 " + kam);
         lbOdkialKam.setForeground(Color.BLUE);
         lbOdkialKam.setFont(new Font("Arial", Font.BOLD, 27));
         lbOdkialKam.setHorizontalTextPosition(SwingConstants.CENTER);

@@ -7,12 +7,15 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
@@ -99,7 +102,7 @@ public class BusInteriorLcd extends JFrame {
         lbNewLabel.setBounds(0, 0, 121, 84);
         contentPane.add(lbNewLabel);
         
-        lblChatamSfer = new JLabel("Chatam Sófer   3 min");
+        lblChatamSfer = new JLabel("Chatam S\u00F3fer   3 min");
         lblChatamSfer.setBackground(Color.WHITE);
         lblChatamSfer.setHorizontalAlignment(SwingConstants.CENTER);
         lblChatamSfer.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
@@ -115,10 +118,10 @@ public class BusInteriorLcd extends JFrame {
         lblZochova.setFont(new Font("Dialog", Font.BOLD, 30));
         lblZochova.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
         lblZochova.setOpaque(true);
-        lblZochova.setBounds(109, 360, 269, 34);
+        lblZochova.setBounds(88, 356, 269, 34);
         contentPane.add(lblZochova);
         
-        lblParkKultry = new JLabel("Park kultúry   4 min");
+        lblParkKultry = new JLabel("Park kult\u00FAry   4 min");
         lblParkKultry.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
         lblParkKultry.setOpaque(true);
         lblParkKultry.setHorizontalAlignment(SwingConstants.CENTER);
@@ -171,5 +174,21 @@ public class BusInteriorLcd extends JFrame {
         int x = (screen.width - window.width) / 2;
         int y = (screen.height - window.height) / 2;
         this.setLocation(x, y);
+        
+        Timer timer = new Timer(1000, new ActionListener() {
+            private final String[] timeStrings = {
+                "13:42", "13 42"
+            };
+            private int i;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                i = (i + 1) % timeStrings.length;
+                label.setText(timeStrings[i]);
+                
+            }
+        });
+        timer.setInitialDelay(1000);
+        timer.start();
     }
 }
