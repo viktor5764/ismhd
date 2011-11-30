@@ -2,31 +2,20 @@ package sk.fiit.kk.icp.ismhd.gui.interior;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.GridLayout;
+import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.table.DefaultTableModel;
-
-import sk.fiit.kk.icp.ismhd.gui.stop.HlavnaPonukaScreen;
-import sk.fiit.kk.icp.ismhd.gui.stop.VyhladanieTrasyScreen;
-
-import java.awt.FlowLayout;
-import java.awt.BorderLayout;
-import javax.swing.BoxLayout;
-import java.awt.GridLayout;
 
 public class BusInteriorLcd extends JFrame {
 
@@ -175,5 +164,12 @@ public class BusInteriorLcd extends JFrame {
         label_1.setIcon(new ImageIcon(BusInteriorLcd.class.getResource("/sk/fiit/kk/icp/ismhd/arrow.png")));
         label_1.setBounds(92, 80, 628, 481);
         contentPane.add(label_1);
+        
+     // vycentrovanie okna na stred obrazovky
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension window = this.getSize();
+        int x = (screen.width - window.width) / 2;
+        int y = (screen.height - window.height) / 2;
+        this.setLocation(x, y);
     }
 }

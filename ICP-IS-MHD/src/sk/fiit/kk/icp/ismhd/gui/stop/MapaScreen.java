@@ -1,26 +1,22 @@
 package sk.fiit.kk.icp.ismhd.gui.stop;
 
 import java.awt.Color;
-import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ResourceBundle;
 
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.ImageIcon;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.util.ResourceBundle;
 
 public class MapaScreen extends JFrame {
     private static ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
@@ -168,5 +164,12 @@ public class MapaScreen extends JFrame {
         lblNewLabel.setIcon(new ImageIcon(MapaScreen.class.getResource("/sk/fiit/kk/icp/ismhd/map.GIF")));
         lblNewLabel.setBounds(6, 6, 628, 441);
         contentPane.add(lblNewLabel);
+        
+     // vycentrovanie okna na stred obrazovky
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension window = this.getSize();
+        int x = (screen.width - window.width) / 2;
+        int y = (screen.height - window.height) / 2;
+        this.setLocation(x, y);
     }
 }

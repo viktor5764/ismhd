@@ -2,24 +2,23 @@ package sk.fiit.kk.icp.ismhd.gui.stop;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ResourceBundle;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.table.DefaultTableModel;
-import java.util.ResourceBundle;
 
 public class PomocScreen extends JFrame {
     private static ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
@@ -142,6 +141,13 @@ public class PomocScreen extends JFrame {
         bSpat.setFont(new Font("Arial", Font.BOLD, 17));
         bSpat.setBounds(9, 399, 114, 42);
         contentPane.add(bSpat);
+        
+     // vycentrovanie okna na stred obrazovky
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension window = this.getSize();
+        int x = (screen.width - window.width) / 2;
+        int y = (screen.height - window.height) / 2;
+        this.setLocation(x, y);
     }
 
 }

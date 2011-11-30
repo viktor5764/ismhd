@@ -2,25 +2,24 @@ package sk.fiit.kk.icp.ismhd.gui.stop;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
+import java.util.ResourceBundle;
 
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.ImageIcon;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.util.ResourceBundle;
 
 public class ZobrazenieCpScreen extends JFrame {
     private static ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
@@ -43,7 +42,7 @@ public class ZobrazenieCpScreen extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    ZobrazenieCpScreen frame = new ZobrazenieCpScreen(BUNDLE);
+                    ZobrazenieCpScreen frame = new ZobrazenieCpScreen(BUNDLE, "Test", 0);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -55,7 +54,7 @@ public class ZobrazenieCpScreen extends JFrame {
     /**
      * Create the frame.
      */
-    public ZobrazenieCpScreen(ResourceBundle rb) {
+    public ZobrazenieCpScreen(ResourceBundle rb, String linka, int hash) {
         this.BUNDLE = rb;
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -66,7 +65,7 @@ public class ZobrazenieCpScreen extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
         
-        lbTitleLinkaCislo = new JLabel(BUNDLE.getString("ZobrazenieCpScreen.lbTitleLinkaCislo.text") + 31); //$NON-NLS-1$
+        lbTitleLinkaCislo = new JLabel(BUNDLE.getString("ZobrazenieCpScreen.lbTitleLinkaCislo.text") + linka); //$NON-NLS-1$
         lbTitleLinkaCislo.setOpaque(true);
         lbTitleLinkaCislo.setHorizontalAlignment(SwingConstants.CENTER);
         lbTitleLinkaCislo.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -109,8 +108,17 @@ public class ZobrazenieCpScreen extends JFrame {
         contentPane.add(bSpat);
         
         JLabel lbCestovnyPoriadokPicture = new JLabel("");
-        lbCestovnyPoriadokPicture.setIcon(new ImageIcon(ZobrazenieCpScreen.class.getResource("/sk/fiit/kk/icp/ismhd/cp.jpg")));
+        Random rand = new Random(hash);
+        String res = "/sk/fiit/kk/icp/ismhd/cp"+ (1 + rand.nextInt(6)) + ".png";
+        lbCestovnyPoriadokPicture.setIcon(new ImageIcon(ZobrazenieCpScreen.class.getResource(res)));
         lbCestovnyPoriadokPicture.setBounds(50, 67, 545, 355);
         contentPane.add(lbCestovnyPoriadokPicture);
+        
+     // vycentrovanie okna na stred obrazovky
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension window = this.getSize();
+        int x = (screen.width - window.width) / 2;
+        int y = (screen.height - window.height) / 2;
+        this.setLocation(x, y);
     }
 }

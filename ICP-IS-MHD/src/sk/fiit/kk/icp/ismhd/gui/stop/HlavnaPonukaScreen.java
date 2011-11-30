@@ -3,10 +3,12 @@ package sk.fiit.kk.icp.ismhd.gui.stop;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -419,6 +421,13 @@ public class HlavnaPonukaScreen extends JFrame {
         lbCas.setFont(new Font("Arial", Font.PLAIN, 22));
         lbCas.setBounds(489, 96, 89, 24);
         contentPane.add(lbCas);
+        
+     // vycentrovanie okna na stred obrazovky
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension window = this.getSize();
+        int x = (screen.width - window.width) / 2;
+        int y = (screen.height - window.height) / 2;
+        this.setLocation(x, y);
     }
 
     public static final String[] ZOZNAM_ZASTAVOK = {

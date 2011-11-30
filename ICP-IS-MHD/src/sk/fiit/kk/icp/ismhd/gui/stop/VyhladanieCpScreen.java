@@ -2,32 +2,33 @@ package sk.fiit.kk.icp.ismhd.gui.stop;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+import java.util.ResourceBundle;
 
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerListModel;
-import javax.swing.SpinnerNumberModel;
+import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.JRadioButton;
 import javax.swing.border.TitledBorder;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.util.Random;
-import java.util.ResourceBundle;
 
 public class VyhladanieCpScreen extends JFrame {
     private static ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
@@ -44,6 +45,10 @@ public class VyhladanieCpScreen extends JFrame {
     private JComboBox comboBoxLinka;
 
     private JComboBox comboBoxZoZastavky;
+
+    private JRadioButton rdbtnSmer1;
+
+    private JRadioButton rdbtnSmer2;
 
     /**
      * Launch the application.
@@ -115,7 +120,7 @@ public class VyhladanieCpScreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 VyhladanieCpScreen.this.dispose();
                 VyhladanieCpScreen.this.setVisible(false);
-                ZobrazenieCpScreen scr = new ZobrazenieCpScreen(BUNDLE);
+                ZobrazenieCpScreen scr = new ZobrazenieCpScreen(BUNDLE, comboBoxLinka.getSelectedItem().toString(), comboBoxLinka.getSelectedItem().hashCode() + comboBoxZoZastavky.getSelectedItem().hashCode() + new Boolean(rdbtnSmer1.isSelected()).hashCode());
                 scr.setVisible(true);
             }
         });
@@ -174,26 +179,52 @@ public class VyhladanieCpScreen extends JFrame {
         contentPane.add(panel);
         panel.setLayout(null);
         
-        JRadioButton rdbtnSmer1 = new JRadioButton("Trnavsk\u00E9 m\u00FDto");
+        rdbtnSmer1 = new JRadioButton("Trnavsk\u00E9 m\u00FDto");
         rdbtnSmer1.setSelected(true);
         rdbtnSmer1.setBounds(16, 27, 112, 18);
         panel.add(rdbtnSmer1);
         
-        JRadioButton rdbtnSmer2 = new JRadioButton("Cintor\u00EDn Sl\u00E1v. \u00FAdolie");
+        rdbtnSmer2 = new JRadioButton("Cintor\u00EDn Sl\u00E1v. \u00FAdolie");
         rdbtnSmer2.setBounds(16, 57, 145, 18);
         panel.add(rdbtnSmer2);
+        
+        ButtonGroup group = new ButtonGroup();
+        group.add(rdbtnSmer1);
+        group.add(rdbtnSmer2);
         
         JLabel lbZoZastavky = new JLabel(BUNDLE.getString("VyhladanieCpScreen.lbZoZastavky.text")); //$NON-NLS-1$
         lbZoZastavky.setHorizontalAlignment(SwingConstants.LEFT);
         lbZoZastavky.setFont(new Font("Arial", Font.PLAIN, 22));
         lbZoZastavky.setBounds(222, 295, 208, 26);
         contentPane.add(lbZoZastavky);
+        fillZastavkyComboBox((String)comboBoxLinka.getSelectedItem());
+        
+     // vycentrovanie okna na stred obrazovky
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension window = this.getSize();
+        int x = (screen.width - window.width) / 2;
+        int y = (screen.height - window.height) / 2;
+        this.setLocation(x, y);
     }
 
     private void fillZastavkyComboBox(String linkaName) {
-            int hash = linkaName.hashCode();
-            Random rand = new Random(hash);
-            int pocetZastavok = rand.nextInt(HlavnaPonukaScreen.ZOZNAM_ZASTAVOK.length);
-            
+        //System.out.println("Linka name = " + linkaName);
+        int hash = linkaName.hashCode();
+        //System.out.println("Hash = " + hash);
+        Random rand = new Random(hash);
+        List<String> zastavky = new ArrayList<String>(Arrays.asList(HlavnaPonukaScreen.ZOZNAM_ZASTAVOK));
+        int pocetZastavok = Math.max(rand.nextInt(HlavnaPonukaScreen.ZOZNAM_ZASTAVOK.length), 3);
+        //System.out.println("Pocet zastavok = " + pocetZastavok);
+        //Shuffle zastavky
+        for(int i=0;i<zastavky.size();i++){
+            int pos = i + rand.nextInt(zastavky.size() - i);
+            String tmp = zastavky.get(pos);
+            zastavky.set(pos, zastavky.get(i));
+            zastavky.set(i, tmp);
+        }
+        
+        comboBoxZoZastavky.setModel(new DefaultComboBoxModel<String>(zastavky.subList(0, pocetZastavok).toArray(new String[]{})));
+        rdbtnSmer1.setText((String)comboBoxZoZastavky.getItemAt(0));
+        rdbtnSmer2.setText((String)comboBoxZoZastavky.getItemAt(pocetZastavok - 1));
     };
 }

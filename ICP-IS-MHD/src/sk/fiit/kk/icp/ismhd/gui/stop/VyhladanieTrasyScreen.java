@@ -2,34 +2,31 @@ package sk.fiit.kk.icp.ismhd.gui.stop;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ResourceBundle;
 
+import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTable;
+import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerListModel;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.LineBorder;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.border.BevelBorder;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.SpinnerDateModel;
-import java.util.Date;
-import java.util.Calendar;
-import javax.swing.SpinnerListModel;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JRadioButton;
-import java.util.ResourceBundle;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
 public class VyhladanieTrasyScreen extends JFrame {
 
@@ -59,6 +56,14 @@ public class VyhladanieTrasyScreen extends JFrame {
     private JButton bVyhladat;
     private JButton bSpat;
     private JPanel pOdchodPrichod;
+
+
+
+    private JRadioButton rdbtnOdchod;
+
+
+
+    private JRadioButton rdbtnPrichod;
 
     /**
      * Launch the application.
@@ -278,14 +283,26 @@ public class VyhladanieTrasyScreen extends JFrame {
         pOdchodPrichod.setLayout(null);
         pOdchodPrichod.setBackground(new Color(255, 235, 205));
         
-        JRadioButton rdbtnOdchod = new JRadioButton(BUNDLE.getString("VyhladanieTrasyScreen.rdbtnOdchod.text")); //$NON-NLS-1$
+        rdbtnOdchod = new JRadioButton(BUNDLE.getString("VyhladanieTrasyScreen.rdbtnOdchod.text"));
+        rdbtnOdchod.setSelected(true);
         rdbtnOdchod.setBounds(157, 9, 147, 18);
         pOdchodPrichod.add(rdbtnOdchod);
         rdbtnOdchod.setFont(new Font("Arial", Font.PLAIN, 22));
         
-        JRadioButton rdbtnPrichod = new JRadioButton(BUNDLE.getString("VyhladanieTrasyScreen.rdbtnPrichod.text")); //$NON-NLS-1$
+        rdbtnPrichod = new JRadioButton(BUNDLE.getString("VyhladanieTrasyScreen.rdbtnPrichod.text"));
         rdbtnPrichod.setBounds(349, 9, 147, 18);
         pOdchodPrichod.add(rdbtnPrichod);
         rdbtnPrichod.setFont(new Font("Arial", Font.PLAIN, 22));
+        
+        ButtonGroup group = new ButtonGroup();
+        group.add(rdbtnOdchod);
+        group.add(rdbtnPrichod);
+        
+     // vycentrovanie okna na stred obrazovky
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension window = this.getSize();
+        int x = (screen.width - window.width) / 2;
+        int y = (screen.height - window.height) / 2;
+        this.setLocation(x, y);
     }
 }
