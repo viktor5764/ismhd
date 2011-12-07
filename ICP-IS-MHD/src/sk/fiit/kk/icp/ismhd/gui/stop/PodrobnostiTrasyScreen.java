@@ -28,6 +28,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 public class PodrobnostiTrasyScreen extends JFrame {
     private static ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
@@ -48,6 +50,7 @@ public class PodrobnostiTrasyScreen extends JFrame {
     private JLabel lbTrvanieValue;
     private JLabel lbTrasa;
     private JLabel lbPodrobnosti;
+    private JScrollPane scrollPane;
 
     /**
      * Launch the application.
@@ -128,6 +131,12 @@ public class PodrobnostiTrasyScreen extends JFrame {
         bSpat.setBounds(9, 399, 114, 49);
         contentPane.add(bSpat);
         
+        scrollPane = new JScrollPane();
+        scrollPane.setViewportBorder(null);
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setBounds(295, 144, 332, 243);
+        contentPane.add(scrollPane);
+        
         table = new JTable(){
             private TableCellRenderer renderer = new CenteredTableCellRenderer();
             
@@ -200,6 +209,8 @@ public class PodrobnostiTrasyScreen extends JFrame {
                 return c;
             }*/
         };
+        table.setFillsViewportHeight(true);
+        scrollPane.setViewportView(table);
         table.setRowMargin(2);
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         table.setFocusable(false);
@@ -211,14 +222,14 @@ public class PodrobnostiTrasyScreen extends JFrame {
         table.setModel(new DefaultTableModel(
             new Object[][] {
                 {"<html><b>linka 31</b></html>", "smer Ra\u010Dianske m\u00FDto"},
-                {null, "<html><b>14:00 - "+odkial+"</b></html>"},
+                {null, "<html><b>14:00 - <dynamic></b></html>"},
                 {null, "   (3 zast\u00E1vky, 13 min)"},
                 {null, "<html><b>14:13 - Vazovova</b></html>"},
                 {null, null},
                 {"<html><b>linka 50</b></html>", "smer Nov\u00E9 Mesto"},
                 {null, "<html><b>14:14 - Vazovova</b></html>"},
                 {null, "   (6 zast\u00E1vok, 15 min)"},
-                {null, "<html><b>14:29 - "+kam+"</b></html>"},
+                {null, "<html><b>14:29 - <dynamic></b></html>"},
             },
             new String[] {
                 "New column", "New column"
@@ -226,8 +237,7 @@ public class PodrobnostiTrasyScreen extends JFrame {
         ));
         table.getColumnModel().getColumn(0).setPreferredWidth(73);
         table.getColumnModel().getColumn(1).setPreferredWidth(166);
-        table.setBounds(295, 144, 332, 243);
-        contentPane.add(table);
+        table.setTableHeader(null);
         
         lbOdkialKam = new JLabel(odkial + " \u2192 " + kam);
         lbOdkialKam.setForeground(Color.BLUE);

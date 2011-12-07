@@ -28,6 +28,8 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 public class NajdeneTrasyScreen extends JFrame {
     private static ResourceBundle BUNDLE = ResourceBundle.getBundle("sk.fiit.kk.icp.ismhd.gui.stop.messages_SK"); //$NON-NLS-1$
@@ -45,6 +47,7 @@ public class NajdeneTrasyScreen extends JFrame {
     private JLabel lbPrichod;
     private JLabel lbPrestupy;
     private JLabel lbOdkialKam;
+    private JScrollPane scrollPane;
 
     /**
      * Launch the application.
@@ -141,6 +144,11 @@ public class NajdeneTrasyScreen extends JFrame {
         bSpat.setBounds(9, 399, 114, 49);
         contentPane.add(bSpat);
         
+        scrollPane = new JScrollPane();
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setBounds(6, 147, 621, 246);
+        contentPane.add(scrollPane);
+        
         table = new JTable(){
             private TableCellRenderer renderer = new CenteredTableCellRenderer();
             
@@ -209,11 +217,12 @@ public class NajdeneTrasyScreen extends JFrame {
                 return c;
             }
         };
+        table.setFillsViewportHeight(true);
+        scrollPane.setViewportView(table);
         table.setShowVerticalLines(false);
         table.setRowMargin(2);
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         table.setFocusable(false);
-        table.setRequestFocusEnabled(false);
         table.setRowHeight(40);
         table.setBackground(new Color(255, 204, 153));
         table.setBorder(new LineBorder(Color.BLUE, 2, true));
@@ -249,8 +258,7 @@ public class NajdeneTrasyScreen extends JFrame {
         table.getColumnModel().getColumn(2).setPreferredWidth(77);
         table.getColumnModel().getColumn(3).setPreferredWidth(20);
         table.getColumnModel().getColumn(4).setPreferredWidth(133);
-        table.setBounds(6, 147, 621, 240);
-        contentPane.add(table);
+        table.setTableHeader(null);
         
         lbOdchod = new JLabel(BUNDLE.getString("NajdeneTrasyScreen.lbOdchod.text")); //$NON-NLS-1$
         lbOdchod.setHorizontalAlignment(SwingConstants.CENTER);
